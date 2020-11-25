@@ -1,0 +1,59 @@
+<resources>
+    <string name="zaz">zaz</string>
+    <string name="app_name">zaz</string>
+    <string name="z">z</string>
+    <string name="a">a</string>
+    <string name="logo">logo</string>
+
+    <!--Menu-->
+    <string name="home">Início</string>
+    <string name="near_business">Negócios próximos</string>
+    <string name="notifications">Notificações</string>
+    <string name="profile">Perfil</string>
+    <string name="back">Voltar</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="invite_friends">Convidar amigos</string>
+
+    <!--Home tabs-->
+    <string name="list">Lista</string>
+    <string name="map">Mapa</string>
+    <string name="search">Procurar</string>
+
+    <!--Login-->
+    <string name="accelerating_business">Acelerando negócios e criando oportunidades</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="type_your_email">Digite seu e-mail</string>
+    <string name="type_your_password">Digite sua senha</string>
+    <string name="forget_your_password">Esqueceu sua senha?</string>
+    <string name="login">Entrar</string>
+    <string name="no_registration_yet">Ainda não possui um cadastro?</string>
+
+    <!--Recommendation-->
+    <string name="type_recommendation_email">Digite logo abaixo o e-mail da pessoa que lhe indicou para baixar o aplicativo ZaZ</string>
+    <string name="identify_email">Identifique a pessoa que lhe indicou</string>
+    <string name="proceed">Prosseguir</string>
+    <string name="i_already_have_registration">Já tenho um cadastro</string>
+
+    <!--Register-->
+    <string name="register">Cadastre-se</string>
+    <string name="type_your_name">Digite seu nome completo</string>
+    <string name="name">Nome</string>
+    <string name="confirm_password">Confirme sua senha</string>
+    <string name="invalid_email">E-mail inválido</string>
+    <string name="invalid_password">Senha inválida</string>
+
+    <string name="register_service">Cadastrar Serviço</string>
+    <string name="register_product">Cadastrar Produto</string>
+    <string name="register_job_vacancy">Registrar Vaga de Emprego\\</string>
+    <string name="my_ratings">Minhas Avaliações</string>
+    <string name="followers">Seguidores</string>
+    <string name="following">Seguindo</string>
+    <string name="my_zaz_guests">Meus Convidados ZAZ</string>
+    <string name="zaz_user">Usuário ZAZ</string>
+    <string name="finances">Finanças</string>
+    <string name="premium_plan">Plano Premium</string>
+    <string name="logout">Sair</string>
+    <string name="category">Categoria</string>
+
+</resources>

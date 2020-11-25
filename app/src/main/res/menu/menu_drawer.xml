@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/grp_options">
+        <item
+            android:id="@+id/item_my_ads"
+            android:icon="@drawable/ic_business"
+            android:title="@string/register_service" />
+
+        <item
+            android:id="@+id/item_my_ratings"
+            android:icon="@drawable/ic_star"
+            android:title="@string/my_ratings" />
+
+        <item
+            android:id="@+id/item_followers"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/followers" />
+
+        <item
+            android:id="@+id/item_following"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/following" />
+
+        <item
+            android:id="@+id/item_my_zaz_guests"
+            android:icon="@drawable/ic_group"
+            android:title="@string/my_zaz_guests" />
+
+        <item
+            android:id="@+id/item_zaz_user"
+            android:icon="@drawable/ic_zaz_user"
+            android:title="@string/zaz_user" />
+
+        <item
+            android:id="@+id/item_finances"
+            android:icon="@drawable/ic_money"
+            android:title="@string/finances" />
+
+        <item
+            android:id="@+id/item_premium"
+            android:icon="@drawable/ic_diamond"
+            android:title="@string/premium_plan" />
+    </group>
+
+    <group android:id="@+id/gp_options2">
+        <item
+            android:id="@+id/item_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
+    </group>
+</menu>

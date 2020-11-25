@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Montserrat">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Montserrat.AllCaps" parent="Montserrat">
+        <item name="textAllCaps">true</item>
+    </style>
+
+
+    <style name="Montserrat.Bold" parent="Montserrat">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <style name="Montserrat.Bold.M" parent="Montserrat.Bold">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Montserrat.Bold.S" parent="Montserrat.Bold">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Montserrat.Medium">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Montserrat.Medium.Xs" parent="Montserrat.Medium">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Montserrat.Xs" parent="Montserrat">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Montserrat.Xxs" parent="Montserrat">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Montserrat.L" parent="Montserrat">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="Montserrat.Xxs.AllCaps" parent="Montserrat.Xxs">
+        <item name="textAllCaps">true</item>
+    </style>
+
+</resources>

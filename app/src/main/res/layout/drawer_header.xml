@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingVertical="@dimen/m">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_profile_image"
+            android:layout_width="@dimen/xxl_2"
+            android:layout_height="@dimen/xxl_2"
+            android:layout_marginStart="@dimen/m"
+            android:layout_marginTop="@dimen/m"
+            android:src="@drawable/image_profile_example"
+            app:civ_border_color="@color/orange"
+            app:civ_border_width="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            style="@style/Montserrat.Bold.S"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxs"
+            app:layout_constraintBottom_toBottomOf="@id/civ_profile_image"
+            app:layout_constraintStart_toEndOf="@id/civ_profile_image"
+            app:layout_constraintTop_toTopOf="@id/civ_profile_image"
+            tools:text="Mr. Robot" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/xs"
+            android:background="@color/light_gray"
+            app:layout_constraintTop_toBottomOf="@id/civ_profile_image" />
+
+        <Button
+            style="@style/Button.Bold.Xxs"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/xl"
+            android:layout_marginHorizontal="@dimen/m"
+            android:layout_marginTop="@dimen/xs"
+            android:text="@string/invite_friends"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

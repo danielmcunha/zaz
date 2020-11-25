@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_authentication"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.danielcunha.zaz.ui.authentication.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_recommendationFragment"
+            app:destination="@id/recommendationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recommendationFragment"
+        android:name="com.danielcunha.zaz.ui.authentication.login.recommendation.RecommendationFragment"
+        android:label="RecommendationFragment"
+        tools:layout="@layout/fragment_recommendation">
+
+
+        <action
+            android:id="@+id/action_recommendationFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.danielcunha.zaz.ui.authentication.login.register.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+    </fragment>
+
+</navigation>

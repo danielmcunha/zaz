@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/authenticationFragment">
+
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="com.danielcunha.zaz.ui.authentication.AuthenticationFragment"
+        android:label="AuthenticationFragment"
+        tools:layout="@layout/fragment_authentication">
+
+        <action
+            android:id="@+id/action_authenticationFragment_to_bottomMenuFragment"
+            app:destination="@id/bottomMenuFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/bottomMenuFragment"
+        android:name="com.danielcunha.zaz.ui.bottomMenu.BottomMenuFragment"
+        android:label="BottomMenuFragment"
+        tools:layout="@layout/fragment_bottom_menu">
+    </fragment>
+
+</navigation>
