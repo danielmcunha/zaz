@@ -13,19 +13,11 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
     override val viewModel: LoginViewModel by viewModel()
     override fun layoutResId() = R.layout.fragment_login
 
-    override fun onAfterCreateView(savedInstanceState: Bundle?) {
-        setupViewModel()
+    override fun setupFragment() {
+
     }
 
-    private fun setupViewModel() {
-        viewModel.liveEmail.observe(this) { email ->
-
-        }
-
-        viewModel.livePassword.observe(this) { password ->
-
-        }
-
+    override fun setupViewModel() {
         viewModel.loginSuccess.observe(this) { success ->
             if (success) {
                 mainNavController.navigate(AuthenticationFragmentDirections.actionAuthenticationFragmentToBottomMenuFragment())

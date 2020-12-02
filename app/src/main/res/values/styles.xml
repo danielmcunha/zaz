@@ -12,7 +12,7 @@
     <style name="Button" parent="Widget.MaterialComponents.Button">
         <item name="android:background">@drawable/shape_xxs_2_rounded</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
-        <item name="backgroundTint">@color/orange</item>
+        <item name="backgroundTint">@color/color_state_button</item>
     </style>
 
     <style name="Button.Bold" parent="Button">
@@ -50,17 +50,6 @@
 
     <style name="Button.Outlined.Xs.Orange" parent="Button.Outlined.Xs">
         <item name="android:textColor">@color/orange</item>
-        <item name="backgroundTint">@color/white</item>
-    </style>
-
-    <style name="Button.Xs.Bold.Orange" parent="Button.Bold.Xs">
-        <item name="android:textColor">@color/white</item>
-        <item name="backgroundTint">@color/orange</item>
-    </style>
-
-    <style name="Button.Xs.Orange" parent="Button.Xs">
-        <item name="android:textColor">@color/white</item>
-        <item name="backgroundTint">@color/orange</item>
     </style>
 
     <style name="Theme.Zaz.Splash" parent="Theme.Zaz">

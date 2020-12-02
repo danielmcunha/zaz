@@ -3,7 +3,7 @@ package com.danielcunha.zaz.ui.core.util
 import androidx.databinding.BindingAdapter
 import com.google.android.material.textfield.TextInputLayout
 
-object ExtensionsTextInputLayout {
+object LiveDataExtensions {
 
     @JvmStatic
     @BindingAdapter("errorState")

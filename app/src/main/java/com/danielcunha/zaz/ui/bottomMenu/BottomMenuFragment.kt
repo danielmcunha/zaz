@@ -17,7 +17,7 @@ class BottomMenuFragment : BaseFragment<BottomMenuViewModel, FragmentBottomMenuB
     override val viewModel: BottomMenuViewModel by viewModels()
     override fun layoutResId() = R.layout.fragment_bottom_menu
 
-    override fun onAfterCreateView(savedInstanceState: Bundle?) {
+    override fun setupFragment() {
         setupDrawer()
         setupBottomMenu()
     }

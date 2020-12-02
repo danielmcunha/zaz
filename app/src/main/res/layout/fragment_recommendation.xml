@@ -87,13 +87,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/xxs_2"
-                android:hint="@string/email">
+                android:hint="@string/email"
+                app:errorState="@{viewModel.emailError}">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_envelope"
+                    android:text="@={viewModel.email}"
                     android:drawablePadding="@dimen/xxs_2"
                     android:paddingHorizontal="@dimen/xs" />
 
@@ -111,7 +113,7 @@
 
             <Button
                 android:id="@+id/btn_login"
-                style="@style/Button.Xs.Orange"
+                style="@style/Button.Xs"
                 android:layout_width="match_parent"
                 android:layout_marginHorizontal="@dimen/s"
                 android:layout_marginTop="@dimen/s"

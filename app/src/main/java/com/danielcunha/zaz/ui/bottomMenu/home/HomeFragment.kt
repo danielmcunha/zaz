@@ -13,7 +13,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     override val viewModel: HomeViewModel by viewModel()
     override fun layoutResId() = R.layout.fragment_home
 
-    override fun onAfterCreateView(savedInstanceState: Bundle?) {
+    override fun setupFragment() {
         setupTabLayoutAndViewPager()
     }
 

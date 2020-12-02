@@ -16,7 +16,7 @@
             app:destination="@id/bottomMenuFragment"
             app:launchSingleTop="true"
             app:popUpTo="@id/nav_main"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -24,6 +24,13 @@
         android:name="com.danielcunha.zaz.ui.bottomMenu.BottomMenuFragment"
         android:label="BottomMenuFragment"
         tools:layout="@layout/fragment_bottom_menu">
+
+        <action
+            android:id="@+id/action_bottomMenuFragment_to_newAdFragment"
+            app:destination="@id/nav_new_ad"
+            tools:destination="@id/nav_new_ad"/>
     </fragment>
+
+    <include app:graph="@navigation/nav_new_ad" />
 
 </navigation>

@@ -11,7 +11,7 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRecommendationB
     override val viewModel: RegisterViewModel by viewModel()
     override fun layoutResId() = R.layout.fragment_register
 
-    override fun onAfterCreateView(savedInstanceState: Bundle?) {
+    override fun setupFragment() {
 
     }
 }

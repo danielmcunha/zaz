@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.danielcunha.zaz.ui.newAd.RegisterNewAdViewModel" />
+
+        <variable
+            name="viewHolder"
+            type="com.danielcunha.zaz.ui.newAd.adapter.RegisterAdViewHolder" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clHeader"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/white"
+            android:paddingHorizontal="@dimen/m"
+            android:paddingVertical="@dimen/xs"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/back"
+                android:onClick="@{_ -> viewModel.onBackClick()}"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_header_title"
+                style="@style/Montserrat.Bold.Xs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/new_ad"
+                android:textAllCaps="true"
+                android:textColor="@color/orange"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Montserrat.S"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:gravity="center"
+                    android:text="@string/ad_data" />
+
+                <TextView
+                    style="@style/Montserrat.Xxs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xs"
+                    android:layout_marginTop="@dimen/xs"
+                    android:text="@string/ad_type" />
+
+                <include
+                    layout="@layout/item_register_ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/xxl"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/xxs_4"
+                    app:viewHolder="@{viewHolder}" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_ad_title"
+                    style="@style/TextInputLayout.Rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/s"
+                    android:hint="@string/ad_title">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_ad_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/xxs_2"
+                        android:inputType="text"
+                        android:paddingHorizontal="@dimen/xs"
+                        android:text="@={viewModel.adTitle}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_amount"
+                    style="@style/TextInputLayout.Rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/s"
+                    android:hint="@string/amount">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/xxs_2"
+                        android:inputType="text"
+                        android:paddingHorizontal="@dimen/xs"
+                        android:text="@={viewModel.amount}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_description"
+                    style="@style/TextInputLayout.Rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/s"
+                    android:hint="@string/description">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/xxs_2"
+                        android:gravity="top|left"
+                        android:inputType="textMultiLine"
+                        android:lines="4"
+                        android:paddingHorizontal="@dimen/xs"
+                        android:text="@={viewModel.description}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Montserrat.Xxs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xs"
+                    android:layout_marginTop="@dimen/s"
+                    android:text="@string/photos" />
+
+                <Button
+                    android:id="@+id/btn_choose_images"
+                    style="@style/Button.Outlined.Xs.Orange"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/xxl"
+                    android:layout_marginHorizontal="@dimen/xl"
+                    android:layout_marginTop="@dimen/xxs_4"
+                    android:layout_marginBottom="@dimen/m"
+                    android:onClick="@{_->viewModel.actionChooseImages()}"
+                    android:text="@string/choose_images" />
+
+                <Button
+                    android:id="@+id/btn_publish_ad"
+                    style="@style/Button.Xs"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/xl"
+                    android:layout_marginTop="@dimen/xxl"
+                    android:layout_marginBottom="@dimen/m"
+                    android:enabled="@{!viewModel.isLoading() &amp;&amp; viewModel.valid}"
+                    android:onClick="@{_->viewModel.actionPublishAd()}"
+                    android:text="@string/publish_ad"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

@@ -52,21 +52,20 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
         binding.setVariable(BR.viewModel, viewModel)
         binding.lifecycleOwner = this
 
-        viewModel.navigateTo.observe(
-            viewLifecycleOwner,
-            {
-                findNavController().navigate(it)
-            }
-        )
+        viewModel.navigateTo.observe(viewLifecycleOwner) {
+            findNavController().navigate(it)
+        }
 
         viewModel.back.observe(this, {
             findNavController().popBackStack()
         })
 
-        onAfterCreateView(savedInstanceState)
+        setupFragment()
+        setupViewModel()
 
         return binding.root
     }
 
-    open fun onAfterCreateView(savedInstanceState: Bundle?) {}
+    open fun setupFragment() {}
+    open fun setupViewModel() {}
 }

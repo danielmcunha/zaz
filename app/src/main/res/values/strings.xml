@@ -4,6 +4,7 @@
     <string name="z">z</string>
     <string name="a">a</string>
     <string name="logo">logo</string>
+    <string name="icon">Icon</string>
 
     <!--Menu-->
     <string name="home">Início</string>
@@ -42,6 +43,10 @@
     <string name="confirm_password">Confirme sua senha</string>
     <string name="invalid_email">E-mail inválido</string>
     <string name="invalid_password">Senha inválida</string>
+    <string name="invalid_confirm_password">A confirmação da senha deve ser igual a senha informada</string>
+    <string name="invalid_name">Nome inválido</string>
+    <string name="insert_valid_email">Insira um endereço de e-mail válido</string>
+    <string name="required_field">Campo obrigatório</string>
 
     <string name="register_service">Cadastrar Serviço</string>
     <string name="register_product">Cadastrar Produto</string>
@@ -55,5 +60,17 @@
     <string name="premium_plan">Plano Premium</string>
     <string name="logout">Sair</string>
     <string name="category">Categoria</string>
+
+    <!--New Ad-->
+    <string name="advertise_right_now">Anuncie\nagora mesmo</string>
+    <string name="new_ad">Novo anúncio</string>
+    <string name="ad_data">Dados do anúncio</string>
+    <string name="ad_type">Tipo de anúncio</string>
+    <string name="ad_title">Título do anúncio</string>
+    <string name="amount">Valor</string>
+    <string name="description">Descrição</string>
+    <string name="photos">Fotos</string>
+    <string name="choose_images">Escolher imagens</string>
+    <string name="publish_ad">Publicar anúncio</string>
 
 </resources>

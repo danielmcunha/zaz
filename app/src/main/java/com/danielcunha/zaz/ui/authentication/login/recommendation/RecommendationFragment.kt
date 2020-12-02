@@ -11,7 +11,7 @@ class RecommendationFragment : BaseFragment<RecommendationViewModel, FragmentRec
     override val viewModel: RecommendationViewModel by viewModel()
     override fun layoutResId() = R.layout.fragment_recommendation
 
-    override fun onAfterCreateView(savedInstanceState: Bundle?) {
+    override fun setupFragment() {
 
     }
 }

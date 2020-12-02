@@ -1,9 +1,10 @@
 package com.danielcunha.zaz.ui.authentication.login
 
 import android.app.Application
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.danielcunha.zaz.R
 import com.danielcunha.zaz.ui.core.base.BaseViewModel
+import com.danielcunha.zaz.ui.core.util.showError
 
 class LoginViewModel(app: Application) : BaseViewModel(app) {
 
@@ -11,33 +12,35 @@ class LoginViewModel(app: Application) : BaseViewModel(app) {
 
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
+    val emailError = MutableLiveData<String>()
+    val passwordError = MutableLiveData<String>()
 
-    val liveEmail: LiveData<String> = email
-    val livePassword: LiveData<String> = password
+    init {
+        addValidationRules(
+            {
+                android.util.Patterns.EMAIL_ADDRESS.matcher(email.value.orEmpty()).matches()
+                    .also { isValid ->
+                        emailError.showError(isValid, getString(R.string.invalid_email))
+                    }
+            },
+            {
+                password.value.orEmpty().isNotEmpty().also { isValid ->
+                    passwordError.showError(isValid, getString(R.string.invalid_password))
+                }
+            }
+        )
+    }
 
     fun actionForget() {
 
     }
 
     fun actionLogin() {
-//        if (!validate()) {
+        if (!validate()) {
 //            return
-//        }
+        }
+
         loginSuccess.value = true
-    }
-
-    private fun validate(): Boolean {
-        var isValid = true
-
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email.value.orEmpty()).matches()) {
-            isValid = false
-        }
-
-        if (password.value.isNullOrEmpty()) {
-            isValid = false
-        }
-
-        return isValid
     }
 
     fun actionRegister() {

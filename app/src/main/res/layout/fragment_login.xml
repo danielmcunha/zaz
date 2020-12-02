@@ -64,9 +64,9 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:paddingHorizontal="@dimen/m"
-                app:layout_constraintVertical_bias="1.0"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_subtitle">
+                app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+                app:layout_constraintVertical_bias="1.0">
 
                 <TextView
                     style="@style/Montserrat.Xxs"
@@ -82,7 +82,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/xxs_2"
-                    android:hint="@string/email">
+                    android:hint="@string/email"
+                    app:errorState="@{viewModel.emailError}">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_email"
@@ -111,7 +112,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/xxs_2"
-                    android:hint="@string/password">
+                    android:hint="@string/password"
+                    app:errorState="@{viewModel.passwordError}">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_password"
@@ -139,10 +141,11 @@
 
                 <Button
                     android:id="@+id/btn_login"
-                    style="@style/Button.Xs.Orange"
+                    style="@style/Button.Xs"
                     android:layout_width="match_parent"
                     android:layout_marginHorizontal="@dimen/s"
                     android:layout_marginTop="@dimen/s"
+                    android:enabled="@{!viewModel.isLoading()}"
                     android:onClick="@{_->viewModel.actionLogin()}"
                     android:text="@string/login"
                     android:textColor="@color/white" />

@@ -71,7 +71,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/xxs_2"
-                    android:hint="@string/name">
+                    android:hint="@string/name"
+                    app:errorState="@{viewModel.nameError}">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_name"
@@ -80,6 +81,7 @@
                         android:drawableStart="@drawable/ic_user"
                         android:drawablePadding="@dimen/xxs_2"
                         android:inputType="textEmailAddress"
+                        android:text="@={viewModel.name}"
                         android:paddingHorizontal="@dimen/xs" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -98,7 +100,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/xxs_2"
-                    android:hint="@string/email">
+                    android:hint="@string/email"
+                    app:errorState="@{viewModel.emailError}">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_email"
@@ -107,6 +110,7 @@
                         android:drawableStart="@drawable/ic_envelope"
                         android:drawablePadding="@dimen/xxs_2"
                         android:inputType="textEmailAddress"
+                        android:text="@={viewModel.email}"
                         android:paddingHorizontal="@dimen/xs" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -126,7 +130,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/xxs_2"
-                    android:hint="@string/password">
+                    android:hint="@string/password"
+                    app:errorState="@{viewModel.passwordError}">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_password"
@@ -135,6 +140,7 @@
                         android:drawableStart="@drawable/ic_lock"
                         android:drawablePadding="@dimen/xxs_2"
                         android:inputType="textPassword"
+                        android:text="@={viewModel.password}"
                         android:paddingHorizontal="@dimen/xs" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -154,7 +160,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/xxs_2"
-                    android:hint="@string/password">
+                    android:hint="@string/password"
+                    app:errorState="@{viewModel.confirmPasswordError}">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_confirm_password"
@@ -163,13 +170,14 @@
                         android:drawableStart="@drawable/ic_lock"
                         android:drawablePadding="@dimen/xxs_2"
                         android:inputType="textPassword"
+                        android:text="@={viewModel.confirmPassword}"
                         android:paddingHorizontal="@dimen/xs" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/btn_login"
-                    style="@style/Button.Xs.Orange"
+                    style="@style/Button.Xs"
                     android:layout_width="match_parent"
                     android:layout_marginHorizontal="@dimen/s"
                     android:layout_marginTop="@dimen/s"

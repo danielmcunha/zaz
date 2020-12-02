@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewHolder"
+            type="com.danielcunha.zaz.ui.newAd.adapter.RegisterAdViewHolder" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/xxl"
+        android:layout_marginBottom="@dimen/xxs"
+        android:background="@drawable/shape_xxs_4_outline_orange_rounded"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/xxs_2">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/icon"
+            app:srcRes="@{viewHolder.iconRes}"
+            tools:src="@drawable/ic_handshake" />
+
+        <TextView
+            style="@style/Montserrat.Xxs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m"
+            android:text="@{viewHolder.text}"
+            android:textSize="14sp"
+            tools:text="Cadastrar Serviço" />
+
+    </LinearLayout>
+
+</layout>
