@@ -26,6 +26,7 @@ open class BaseViewModel(open val app: Application) :
 
     val navigateTo = SingleLiveEvent<NavDirections>()
     val back = SingleLiveEvent<Any>()
+    val error = SingleLiveEvent<String>()
 
     val isLoading = MutableLiveData(false)
 

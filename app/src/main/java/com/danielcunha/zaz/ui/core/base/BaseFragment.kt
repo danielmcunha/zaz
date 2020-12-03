@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.danielcunha.zaz.BR
 import com.danielcunha.zaz.R
+import com.danielcunha.zaz.ui.core.util.CameraPermissionHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -37,6 +38,8 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
 
     protected lateinit var binding: V
 
+    open val useCamera = false
+
     protected val mainNavController by lazy {
         requireActivity().findNavController(R.id.nav_host_main)
     }
@@ -50,22 +53,48 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
         binding = DataBindingUtil.inflate(inflater, layoutResId(), container, false)
 
         binding.setVariable(BR.viewModel, viewModel)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
 
         viewModel.navigateTo.observe(viewLifecycleOwner) {
             findNavController().navigate(it)
         }
 
-        viewModel.back.observe(this, {
+        viewModel.back.observe(this) {
             findNavController().popBackStack()
-        })
+        }
+
+        viewModel.error.observe(this) {
+
+        }
 
         setupFragment()
         setupViewModel()
+
+        if (useCamera) {
+            requestCameraPermissions()
+        }
 
         return binding.root
     }
 
     open fun setupFragment() {}
     open fun setupViewModel() {}
+
+    private fun requestCameraPermissions() {
+        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
+            CameraPermissionHelper.requestCameraPermission(requireActivity())
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
+            if (!CameraPermissionHelper.shouldShowRequestPermissionRationale(requireActivity())) {
+                CameraPermissionHelper.launchPermissionSettings(requireActivity())
+            }
+        }
+    }
 }
