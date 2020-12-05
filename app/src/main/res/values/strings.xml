@@ -83,5 +83,8 @@
     <string name="share">Compartilhar</string>
     <string name="posted_by">Postado por</string>
     <string name="see_profile">Ver perfil</string>
+    <string name="ratings">Avaliações</string>
+    <string name="stars">Stars</string>
+    <string name="all">Todas</string>
 
 </resources>

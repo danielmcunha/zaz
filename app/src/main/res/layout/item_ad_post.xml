@@ -18,35 +18,35 @@
 
         <TextView
             android:id="@+id/tv_title"
-            style="@style/Montserrat.Bold.Xs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xs"
             android:text="@{viewHolder.title}"
+            android:textAppearance="@style/Montserrat.Bold.Xs"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Desenvolvimento de Sites" />
 
         <TextView
             android:id="@+id/tv_dolar"
-            style="@style/Montserrat.Bold.Xxs"
             android:layout_width="@dimen/s"
             android:layout_height="@dimen/s"
             android:background="@drawable/shape_circle"
             android:backgroundTint="@color/orange"
             android:gravity="center"
             android:text="@string/dolar"
+            android:textAppearance="@style/Montserrat.Bold.Xxs"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="@id/tv_title"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <TextView
             android:id="@+id/tv_value"
-            style="@style/Montserrat.Xxs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xxs_3"
             android:gravity="center"
             android:text="@{viewHolder.price}"
+            android:textAppearance="@style/Montserrat.Xxs"
             android:textColor="@color/gray"
             app:layout_constraintBaseline_toBaselineOf="@id/tv_dolar"
             app:layout_constraintStart_toEndOf="@id/tv_dolar"
@@ -76,11 +76,11 @@
 
         <TextView
             android:id="@+id/tv_user_name"
-            style="@style/Montserrat.Bold.Xs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xxs"
             android:text="@{viewHolder.userName}"
+            android:textAppearance="@style/Montserrat.Bold.Xs"
             app:layout_constraintBottom_toTopOf="@id/tv_post_time"
             app:layout_constraintStart_toEndOf="@id/civ_user_image"
             app:layout_constraintTop_toTopOf="@id/civ_user_image"
@@ -89,11 +89,11 @@
 
         <TextView
             android:id="@+id/tv_post_time"
-            style="@style/Montserrat.Xxs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xxs"
             android:text="@{viewHolder.postTime}"
+            android:textAppearance="@style/Montserrat.Xxs"
             app:layout_constraintBottom_toBottomOf="@id/civ_user_image"
             app:layout_constraintStart_toEndOf="@id/civ_user_image"
             app:layout_constraintTop_toBottomOf="@id/tv_user_name"

@@ -25,6 +25,7 @@ open class BaseViewModel(open val app: Application) :
     private val job: Job = SupervisorJob()
 
     val navigateTo = SingleLiveEvent<NavDirections>()
+    val navigateToMain = SingleLiveEvent<NavDirections>()
     val back = SingleLiveEvent<Any>()
     val error = SingleLiveEvent<String>()
 

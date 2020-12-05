@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/tv_header_title"
-            style="@style/Montserrat.Bold.Xs"
+            android:textAppearance="@style/Montserrat.Bold.Xs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.title}"

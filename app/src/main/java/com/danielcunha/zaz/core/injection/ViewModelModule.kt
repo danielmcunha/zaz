@@ -1,5 +1,6 @@
 package com.danielcunha.zaz.core.injection
 
+import com.danielcunha.zaz.ui.adPost.AdPostDetailViewModel
 import com.danielcunha.zaz.ui.authentication.AuthenticationViewModel
 import com.danielcunha.zaz.ui.authentication.login.LoginViewModel
 import com.danielcunha.zaz.ui.authentication.login.recommendation.RecommendationViewModel
@@ -21,4 +22,5 @@ val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
     viewModel { AdListViewModel(get()) }
     viewModel { NewAdViewModel(get()) }
+    viewModel { AdPostDetailViewModel(get()) }
 }

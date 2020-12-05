@@ -57,6 +57,10 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
             findNavController().navigate(it)
         }
 
+        viewModel.navigateToMain.observe(viewLifecycleOwner) {
+            mainNavController.navigate(it)
+        }
+
         viewModel.back.observe(this) {
             findNavController().popBackStack()
         }

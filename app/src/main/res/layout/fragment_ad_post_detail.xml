@@ -32,10 +32,10 @@
 
         <TextView
             android:id="@+id/tv_ad_type"
-            style="@style/Montserrat.Bold.Xs.AllCaps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xxs_2"
+            android:textAppearance="@style/Montserrat.Bold.Xs.AllCaps"
             android:textColor="@color/orange"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_ad_type"
@@ -56,10 +56,10 @@
 
         <TextView
             android:id="@+id/tv_ad_date"
-            style="@style/Montserrat.Xxs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/xs"
+            android:textAppearance="@style/Montserrat.Xxs"
             android:textColor="@color/gray"
             app:layout_constraintBaseline_toBaselineOf="@id/tv_ad_type"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,148 +76,241 @@
             app:layout_constraintTop_toBottomOf="@id/iv_ad_type"
             tools:src="@drawable/ad_post_sample" />
 
-        <TextView
-            android:id="@+id/tv_amount_label"
-            style="@style/Montserrat.Bold.Xxs.AllCaps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m"
-            android:text="@string/amount"
-            android:textColor="@color/gray"
-            app:layout_constraintStart_toStartOf="@id/iv_ad_type"
-            app:layout_constraintTop_toBottomOf="@id/iv_ad" />
-
-        <TextView
-            android:id="@+id/tv_amount"
-            style="@style/Montserrat.Bold.S"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/iv_ad_type"
-            app:layout_constraintTop_toBottomOf="@id/tv_amount_label"
-            tools:text="R$ 750,00" />
-
-        <TextView
-            android:id="@+id/btn_login"
-            style="@style/Button.Bold.Xs"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/xl"
-            android:layout_marginEnd="@dimen/xs"
-            android:background="@drawable/shape_l_rounded"
-            android:drawablePadding="@dimen/xxs"
-            android:text="@string/share"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            app:drawableStartCompat="@drawable/ic_share"
-            app:layout_constraintBottom_toBottomOf="@id/tv_amount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_amount_label" />
-
-        <TextView
-            android:id="@+id/tv_description_label"
-            style="@style/Montserrat.Xs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m"
-            android:text="@string/description"
-            android:textAllCaps="true"
-            android:textColor="@color/gray"
-            app:layout_constraintStart_toStartOf="@id/iv_ad_type"
-            app:layout_constraintTop_toBottomOf="@id/tv_amount" />
-
-        <View
-            android:id="@+id/divider_description"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="@dimen/xs"
-            android:layout_marginTop="@dimen/xxs_2"
-            android:background="@color/gray"
-            app:layout_constraintTop_toBottomOf="@id/tv_description_label" />
-
-        <TextView
-            android:id="@+id/tv_description"
-            style="@style/Montserrat.Xxs"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/xs"
-            android:layout_marginTop="@dimen/xxs"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/divider_description"
-            tools:text="Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic." />
-
-        <TextView
-            android:id="@+id/tv_posted_by_label"
-            style="@style/Montserrat.Xs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m"
-            android:text="@string/posted_by"
-            android:textAllCaps="true"
-            android:textColor="@color/gray"
+            android:fillViewport="true"
             app:layout_constraintStart_toStartOf="@id/iv_ad_type"
-            app:layout_constraintTop_toBottomOf="@id/tv_description" />
+            app:layout_constraintTop_toBottomOf="@id/iv_ad">
 
-        <View
-            android:id="@+id/divider_posted_by"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="@dimen/xs"
-            android:layout_marginTop="@dimen/xxs_2"
-            android:background="@color/gray"
-            app:layout_constraintTop_toBottomOf="@id/tv_posted_by_label" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/civ_user_image"
-            android:layout_width="@dimen/xxl_2"
-            android:layout_height="@dimen/xxl_2"
-            android:layout_marginTop="@dimen/xxs"
-            android:src="@drawable/image_profile_example"
-            app:layout_constraintStart_toStartOf="@id/iv_ad_type"
-            app:layout_constraintTop_toBottomOf="@id/divider_posted_by"
-            tools:src="@drawable/image_profile_example" />
+                <TextView
+                    android:id="@+id/tv_amount_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xs"
+                    android:layout_marginTop="@dimen/m"
+                    android:text="@string/amount"
+                    android:textAppearance="@style/Montserrat.Bold.Xxs.AllCaps"
+                    android:textColor="@color/gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_user_name"
-            style="@style/Montserrat.Bold.Xs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/xxs"
-            app:layout_constraintBottom_toTopOf="@id/tv_see_profile"
-            app:layout_constraintStart_toEndOf="@id/civ_user_image"
-            app:layout_constraintTop_toTopOf="@id/civ_user_image"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:text="Floyd Miles" />
+                <TextView
+                    android:id="@+id/tv_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/Montserrat.Bold.S"
+                    app:layout_constraintStart_toStartOf="@id/tv_amount_label"
+                    app:layout_constraintTop_toBottomOf="@id/tv_amount_label"
+                    tools:text="R$ 750,00" />
 
-        <TextView
-            android:id="@+id/tv_see_profile"
-            style="@style/Montserrat.Bold.Xxs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/xxs"
-            android:text="@string/see_profile"
-            android:textColor="@color/orange"
-            app:layout_constraintBottom_toBottomOf="@id/civ_user_image"
-            app:layout_constraintStart_toEndOf="@id/civ_user_image"
-            app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+                <TextView
+                    android:id="@+id/btn_login"
+                    style="@style/Button.Bold.Xs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/xl"
+                    android:layout_marginEnd="@dimen/xs"
+                    android:background="@drawable/shape_l_rounded"
+                    android:drawablePadding="@dimen/xxs"
+                    android:text="@string/share"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    app:drawableStartCompat="@drawable/ic_share"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_amount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_amount_label" />
 
-        <ImageView
-            android:id="@+id/iv_see_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xxs_4"
-            android:contentDescription="@string/see_profile"
-            android:src="@drawable/ic_right"
-            app:layout_constraintBottom_toBottomOf="@id/tv_see_profile"
-            app:layout_constraintStart_toEndOf="@id/tv_see_profile"
-            app:layout_constraintTop_toTopOf="@id/tv_see_profile" />
+                <TextView
+                    android:id="@+id/tv_description_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m"
+                    android:text="@string/description"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    android:textColor="@color/gray"
+                    app:layout_constraintStart_toStartOf="@id/tv_amount_label"
+                    app:layout_constraintTop_toBottomOf="@id/tv_amount" />
 
-        <View
-            android:id="@+id/divider_see_profile"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="@dimen/xs"
-            android:layout_marginTop="@dimen/xxs"
-            android:background="@color/gray"
-            app:layout_constraintTop_toBottomOf="@id/civ_user_image" />
+                <View
+                    android:id="@+id/divider_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/xxs_2"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/tv_description_label" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:textAppearance="@style/Montserrat.Xxs"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@id/divider_description"
+                    tools:text="Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic." />
+
+                <TextView
+                    android:id="@+id/tv_posted_by_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m"
+                    android:text="@string/posted_by"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    android:textColor="@color/gray"
+                    app:layout_constraintStart_toStartOf="@id/tv_amount_label"
+                    app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+                <View
+                    android:id="@+id/divider_posted_by"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/xxs_2"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/tv_posted_by_label" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_user_image"
+                    android:layout_width="@dimen/xxl_2"
+                    android:layout_height="@dimen/xxl_2"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:src="@drawable/image_profile_example"
+                    app:layout_constraintStart_toStartOf="@id/tv_amount_label"
+                    app:layout_constraintTop_toBottomOf="@id/divider_posted_by"
+                    tools:src="@drawable/image_profile_example" />
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xxs"
+                    android:textAppearance="@style/Montserrat.Bold.Xs"
+                    app:layout_constraintBottom_toTopOf="@id/tv_see_profile"
+                    app:layout_constraintStart_toEndOf="@id/civ_user_image"
+                    app:layout_constraintTop_toTopOf="@id/civ_user_image"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="Floyd Miles" />
+
+                <TextView
+                    android:id="@+id/tv_see_profile"
+                    style="@style/Montserrat.Bold.Xxs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xxs"
+                    android:text="@string/see_profile"
+                    android:textColor="@color/orange"
+                    app:layout_constraintBottom_toBottomOf="@id/civ_user_image"
+                    app:layout_constraintStart_toEndOf="@id/civ_user_image"
+                    app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+
+                <ImageView
+                    android:id="@+id/iv_see_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs_4"
+                    android:contentDescription="@string/see_profile"
+                    android:src="@drawable/ic_right"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_see_profile"
+                    app:layout_constraintStart_toEndOf="@id/tv_see_profile"
+                    app:layout_constraintTop_toTopOf="@id/tv_see_profile" />
+
+                <View
+                    android:id="@+id/divider_see_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/civ_user_image" />
+
+                <TextView
+                    android:id="@+id/tv_ratings_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m"
+                    android:text="@string/ratings"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    android:textColor="@color/gray"
+                    app:layout_constraintStart_toStartOf="@id/tv_amount_label"
+                    app:layout_constraintTop_toBottomOf="@id/divider_see_profile" />
+
+                <ImageView
+                    android:id="@+id/iv_ratings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xxs_2"
+                    android:contentDescription="@string/stars"
+                    android:src="@drawable/ic_star"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_ratings_label"
+                    app:layout_constraintStart_toEndOf="@id/tv_ratings_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_ratings_label" />
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xxs_4"
+                    android:textAppearance="@style/Montserrat.Bold.Xs"
+                    android:textColor="@color/orange"
+                    app:layout_constraintBaseline_toBaselineOf="@id/tv_ratings_label"
+                    app:layout_constraintStart_toEndOf="@id/iv_ratings"
+                    tools:text="4,5" />
+
+                <TextView
+                    android:id="@+id/tv_all_ratings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all"
+                    android:textAppearance="@style/Montserrat.Bold.Xs"
+                    android:textColor="@color/orange"
+                    app:layout_constraintBaseline_toBaselineOf="@id/tv_ratings_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_all_ratings" />
+
+                <ImageView
+                    android:id="@+id/iv_all_ratings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs_4"
+                    android:layout_marginEnd="@dimen/xs"
+                    android:contentDescription="@string/see_profile"
+                    android:src="@drawable/ic_right"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_all_ratings"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_all_ratings" />
+
+                <View
+                    android:id="@+id/divider_ratings"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/tv_ratings_label" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_ratings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/xs"
+                    android:layout_marginTop="@dimen/xxs"
+                    app:layout_constraintTop_toBottomOf="@id/divider_ratings"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_ad_post_rating" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

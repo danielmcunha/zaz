@@ -28,9 +28,15 @@
         <action
             android:id="@+id/action_bottomMenuFragment_to_newAdFragment"
             app:destination="@id/nav_new_ad"
-            tools:destination="@id/nav_new_ad"/>
+            tools:destination="@id/nav_new_ad" />
+
+        <action
+            android:id="@+id/action_bottomMenuFragment_to_adPostDetail"
+            app:destination="@id/nav_ad_post_detail"
+            tools:destination="@id/nav_ad_post_detail" />
     </fragment>
 
     <include app:graph="@navigation/nav_new_ad" />
+    <include app:graph="@navigation/nav_ad_post_detail" />
 
 </navigation>

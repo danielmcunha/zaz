@@ -36,11 +36,15 @@ abstract class RVBaseAdapter<T> : RecyclerView.Adapter<RVBaseViewHolder<T>>(), K
     override fun onBindViewHolder(holder: RVBaseViewHolder<T>, position: Int) {
         val model = viewModels[position]
         onItemClick?.let { clickEvent ->
-            holder.itemView.setOnClickListener {
-                clickEvent.invoke(model)
-            }
+            handleItemClick(holder, model, clickEvent)
         }
         holder.bindModel(model)
+    }
+
+    open fun handleItemClick(holder: RVBaseViewHolder<T>, model: T, clickEvent: (T) -> Unit) {
+        holder.itemView.setOnClickListener {
+            clickEvent.invoke(model)
+        }
     }
 
     override fun getItemViewType(position: Int): Int {
