@@ -21,7 +21,7 @@
             style="@style/Montserrat.Bold.Xs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/xxs"
+            android:layout_marginStart="@dimen/xs"
             android:text="@{viewHolder.title}"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Desenvolvimento de Sites" />
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xxs"
             android:text="@{viewHolder.postTime}"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/civ_user_image"
             app:layout_constraintStart_toEndOf="@id/civ_user_image"
             app:layout_constraintTop_toBottomOf="@id/tv_user_name"
             tools:text="Postado 3 horas atrás" />

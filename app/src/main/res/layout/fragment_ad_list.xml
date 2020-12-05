@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/xxs_2"
             android:adapter="@{viewModel.adapter}"
+            android:paddingBottom="@dimen/xxl_2"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="2"

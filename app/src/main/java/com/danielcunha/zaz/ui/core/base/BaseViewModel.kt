@@ -29,6 +29,7 @@ open class BaseViewModel(open val app: Application) :
     val error = SingleLiveEvent<String>()
 
     val isLoading = MutableLiveData(false)
+    val title = MutableLiveData("")
 
     // Validation
     private val validationRules: ArrayList<() -> Boolean> by lazy {

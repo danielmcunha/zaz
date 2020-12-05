@@ -2,6 +2,7 @@ package com.danielcunha.zaz.ui.newAd
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import com.danielcunha.zaz.R
 import com.danielcunha.zaz.ui.core.base.BaseViewModel
 
 class RegisterNewAdViewModel(app: Application) : BaseViewModel(app) {
@@ -12,6 +13,8 @@ class RegisterNewAdViewModel(app: Application) : BaseViewModel(app) {
     val description = MutableLiveData<String>()
 
     init {
+        title.value = getString(R.string.new_ad)
+
         setupValidMediator(
             Pair(adTitle) {
                 it.isNotEmpty()

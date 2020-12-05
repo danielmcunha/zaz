@@ -79,5 +79,9 @@
     <string name="ad_image">Imagem anúncio</string>
     <string name="dolar">$</string>
     <string name="more_detail">+ detalhes</string>
+    <string name="gear">Engrenagem</string>
+    <string name="share">Compartilhar</string>
+    <string name="posted_by">Postado por</string>
+    <string name="see_profile">Ver perfil</string>
 
 </resources>
