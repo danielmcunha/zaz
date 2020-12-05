@@ -10,4 +10,7 @@ class AdListFragment : BaseFragment<AdListViewModel, FragmentAdListBinding>() {
     override val viewModel: AdListViewModel by viewModel()
     override fun layoutResId() = R.layout.fragment_ad_list
 
+    override fun setupViewModel() {
+        viewModel.setup()
+    }
 }

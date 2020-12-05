@@ -25,6 +25,14 @@
         <argument
             android:name="viewHolder"
             app:argType="com.danielcunha.zaz.ui.newAd.adapter.RegisterAdViewHolder" />
+        <action
+            android:id="@+id/action_registerNewAdFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.danielcunha.zaz.ui.core.camera.CameraFragment"
+        android:label="CameraFragment"
+        tools:layout="@layout/fragment_camera" />
 </navigation>

@@ -9,11 +9,11 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.danielcunha.zaz.BR
 import com.danielcunha.zaz.R
-import com.danielcunha.zaz.ui.core.util.CameraPermissionHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -37,8 +37,6 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
     protected abstract fun layoutResId(): Int
 
     protected lateinit var binding: V
-
-    open val useCamera = false
 
     protected val mainNavController by lazy {
         requireActivity().findNavController(R.id.nav_host_main)
@@ -70,31 +68,39 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
         setupFragment()
         setupViewModel()
 
-        if (useCamera) {
-            requestCameraPermissions()
-        }
-
         return binding.root
     }
 
     open fun setupFragment() {}
     open fun setupViewModel() {}
 
-    private fun requestCameraPermissions() {
-        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
-            CameraPermissionHelper.requestCameraPermission(requireActivity())
-        }
+    fun setFragmentResult(key: String, value: Any) {
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(
+            key,
+            value
+        )
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
-            if (!CameraPermissionHelper.shouldShowRequestPermissionRationale(requireActivity())) {
-                CameraPermissionHelper.launchPermissionSettings(requireActivity())
-            }
-        }
+    fun <T> getFragmentResult(key: String): LiveData<T>? {
+        return findNavController().currentBackStackEntry?.savedStateHandle
+            ?.getLiveData(key)
     }
+
+//    protected fun requestCameraPermissions() {
+//        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
+//            CameraPermissionHelper.requestCameraPermission(requireActivity())
+//        }
+//    }
+//
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int,
+//        permissions: Array<out String>,
+//        grantResults: IntArray
+//    ) {
+//        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
+//            if (!CameraPermissionHelper.shouldShowRequestPermissionRationale(requireActivity())) {
+//                CameraPermissionHelper.launchPermissionSettings(requireActivity())
+//            }
+//        }
+//    }
 }

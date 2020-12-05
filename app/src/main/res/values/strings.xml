@@ -72,5 +72,12 @@
     <string name="photos">Fotos</string>
     <string name="choose_images">Escolher imagens</string>
     <string name="publish_ad">Publicar anúncio</string>
+    <string name="capture">Capturar</string>
+    <string name="preview_area">Pré-visualização</string>
+
+    <!--Ad post-->
+    <string name="ad_image">Imagem anúncio</string>
+    <string name="dolar">$</string>
+    <string name="more_detail">+ detalhes</string>
 
 </resources>
