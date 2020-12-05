@@ -35,6 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xxs_2"
+            android:text="@{viewModel.adType}"
             android:textAppearance="@style/Montserrat.Bold.Xs.AllCaps"
             android:textColor="@color/orange"
             android:textSize="14sp"
@@ -59,33 +60,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/xs"
+            android:text="@{viewModel.adDate}"
             android:textAppearance="@style/Montserrat.Xxs"
             android:textColor="@color/gray"
             app:layout_constraintBaseline_toBaselineOf="@id/tv_ad_type"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="Hoje" />
 
-        <ImageView
-            android:id="@+id/iv_ad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xxs"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/ad_image"
-            app:layout_constraintHeight_max="400dp"
-            app:layout_constraintTop_toBottomOf="@id/iv_ad_type"
-            tools:src="@drawable/ad_post_sample" />
-
         <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fillViewport="true"
-            app:layout_constraintStart_toStartOf="@id/iv_ad_type"
-            app:layout_constraintTop_toBottomOf="@id/iv_ad">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/xs"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_ad_type">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/xl"
+                android:fillViewport="true">
+
+                <ImageView
+                    android:id="@+id/iv_ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/ad_image"
+                    app:layout_constraintHeight_max="400dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcRes="@{viewModel.adImage}"
+                    tools:src="@drawable/ad_post_sample" />
 
                 <TextView
                     android:id="@+id/tv_amount_label"
@@ -97,12 +104,13 @@
                     android:textAppearance="@style/Montserrat.Bold.Xxs.AllCaps"
                     android:textColor="@color/gray"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_ad" />
 
                 <TextView
                     android:id="@+id/tv_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{viewModel.adPrice}"
                     android:textAppearance="@style/Montserrat.Bold.S"
                     app:layout_constraintStart_toStartOf="@id/tv_amount_label"
                     app:layout_constraintTop_toBottomOf="@id/tv_amount_label"
@@ -119,6 +127,7 @@
                     android:text="@string/share"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
+                    android:textSize="14sp"
                     app:drawableStartCompat="@drawable/ic_share"
                     app:layout_constraintBottom_toBottomOf="@id/tv_amount"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -151,10 +160,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/xs"
                     android:layout_marginTop="@dimen/xxs"
+                    android:text="@{viewModel.adDescription}"
                     android:textAppearance="@style/Montserrat.Xxs"
                     android:textSize="14sp"
                     app:layout_constraintTop_toBottomOf="@id/divider_description"
-                    tools:text="Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic." />
+                    tools:text="Programa, codifica e testa sistemas. Executa a manutenção dos sistemas, fazendo eventuais correções necessárias, visando atender às necessidades dos usuários. Desenvolve trabalhos de montagem, depuração e testes de programas, executando serviços de manutenção nos programas já desenvolvidos." />
 
                 <TextView
                     android:id="@+id/tv_posted_by_label"
@@ -192,6 +202,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/xxs"
+                    android:text="@{viewModel.userName}"
                     android:textAppearance="@style/Montserrat.Bold.Xs"
                     app:layout_constraintBottom_toTopOf="@id/tv_see_profile"
                     app:layout_constraintStart_toEndOf="@id/civ_user_image"
@@ -259,6 +270,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/xxs_4"
+                    android:text="@{viewModel.adRatingStars}"
                     android:textAppearance="@style/Montserrat.Bold.Xs"
                     android:textColor="@color/orange"
                     app:layout_constraintBaseline_toBaselineOf="@id/tv_ratings_label"
@@ -303,9 +315,22 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/xs"
                     android:layout_marginTop="@dimen/xxs"
+                    android:adapter="@{viewModel.ratingAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/divider_ratings"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_ad_post_rating" />
+
+                <Button
+                    android:id="@+id/btn_rate"
+                    style="@style/Button.Outlined.Xs.Orange"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/xxl"
+                    android:layout_marginHorizontal="@dimen/xxl"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:onClick="@{_->viewModel.actionRate()}"
+                    android:text="@string/rate_ad"
+                    app:layout_constraintTop_toBottomOf="@id/rv_ratings" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

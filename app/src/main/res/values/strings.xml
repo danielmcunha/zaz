@@ -86,5 +86,6 @@
     <string name="ratings">Avaliações</string>
     <string name="stars">Stars</string>
     <string name="all">Todas</string>
+    <string name="rate_ad">Avaliar este anúncio</string>
 
 </resources>

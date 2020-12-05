@@ -7,20 +7,10 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
 import com.danielcunha.zaz.ui.core.base.singleLiveEvent.SingleLiveEvent
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
-import org.koin.core.KoinComponent
-import kotlin.coroutines.CoroutineContext
 
-open class BaseViewModel(open val app: Application) :
-    AndroidViewModel(app),
-    KoinComponent,
-    CoroutineScope {
-
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + job
+open class BaseViewModel(open val app: Application) : AndroidViewModel(app) {
 
     private val job: Job = SupervisorJob()
 
