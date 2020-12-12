@@ -88,7 +88,19 @@
     <string name="all">Todas</string>
     <string name="rate_ad">Avaliar este anúncio</string>
     <string name="type_email">Digite o email</string>
-    <string name="setup_profile">Configurar perfil</string>
 
     <!--Profile-->
+    <string name="setup_profile">Configurar perfil</string>
+    <string name="edit_profile">Editar perfil</string>
+    <string name="camera">Câmera</string>
+    <string name="cellphone">Celular</string>
+    <string name="country">País</string>
+    <string name="change_password">Alterar senha</string>
+    <string name="social_networks">Redes sociais</string>
+    <string name="preferences">Preferências</string>
+    <string name="proximity_radius">Raio de proximidade</string>
+    <string name="num_km">%1$d KM</string>
+    <string name="your_network">Sua rede</string>
+    <string name="business">Negócios</string>
+
 </resources>

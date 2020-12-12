@@ -1,18 +1,395 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.core.widget.NestedScrollView
+    <data>
+
+        <import type="com.danielcunha.zaz.R" />
+
+        <variable
+            name="viewModel"
+            type="com.danielcunha.zaz.ui.bottomMenu.profile.edit.EditProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/layout_simple_toolbar"
+            app:viewModel="@{viewModel}" />
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_toolbar">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="@dimen/xs"
+                android:paddingBottom="@dimen/xs">
 
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:id="@+id/coord_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_profile_image"
+                        android:layout_width="@dimen/xxl_3"
+                        android:layout_height="@dimen/xxl_3"
+                        android:layout_marginTop="@dimen/xs"
+                        tools:src="@drawable/image_profile_example" />
 
-    </androidx.core.widget.NestedScrollView>
+                    <ImageView
+                        android:layout_width="@dimen/m"
+                        android:layout_height="@dimen/m"
+                        android:layout_marginEnd="@dimen/xxs_2"
+                        android:background="@drawable/shape_circle"
+                        android:contentDescription="@string/camera"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_camera"
+                        app:layout_anchor="@id/iv_profile_image"
+                        app:layout_anchorGravity="end|bottom"
+                        app:tint="@color/white" />
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_name"
+                    style="@style/TextInputLayout.Rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/s"
+                    android:hint="@string/name"
+                    app:layout_constraintTop_toBottomOf="@id/coord_image">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/xxs_2"
+                        android:inputType="text"
+                        android:paddingHorizontal="@dimen/xs"
+                        android:text="@={viewModel.name}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_email"
+                    style="@style/TextInputLayout.Rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/s"
+                    android:hint="@string/email"
+                    app:layout_constraintTop_toBottomOf="@id/til_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/xxs_2"
+                        android:inputType="textEmailAddress"
+                        android:paddingHorizontal="@dimen/xs"
+                        android:text="@={viewModel.email}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_cellphone"
+                    style="@style/TextInputLayout.Rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/s"
+                    android:hint="@string/cellphone"
+                    app:layout_constraintTop_toBottomOf="@id/til_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_cellphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="1234567890-() "
+                        android:drawablePadding="@dimen/xxs_2"
+                        android:inputType="number"
+                        android:paddingHorizontal="@dimen/xs"
+                        android:text="@={viewModel.cellphone}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_country"
+                    style="@style/TextInputLayout.Rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/s"
+                    android:hint="@string/country"
+                    app:layout_constraintTop_toBottomOf="@id/til_cellphone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/xxs_2"
+                        android:inputType="text"
+                        android:paddingHorizontal="@dimen/xs"
+                        android:text="@={viewModel.country}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_description"
+                    style="@style/TextInputLayout.Rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/s"
+                    android:hint="@string/description"
+                    app:layout_constraintTop_toBottomOf="@id/til_country">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/xxs_2"
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine"
+                        android:lines="4"
+                        android:paddingHorizontal="@dimen/xs"
+                        android:text="@={viewModel.description}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <include
+                    android:id="@+id/layout_option_change_password"
+                    layout="@layout/item_profile_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/s"
+                    app:icon="@{context.getDrawable(R.drawable.ic_lock)}"
+                    app:layout_constraintTop_toBottomOf="@id/til_description"
+                    app:text="@{context.getString(R.string.change_password)}" />
+
+                <include
+                    android:id="@+id/layout_option_notifications"
+                    layout="@layout/item_profile_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs_2"
+                    app:icon="@{context.getDrawable(R.drawable.ic_bell)}"
+                    app:layout_constraintTop_toBottomOf="@id/layout_option_change_password"
+                    app:text="@{context.getString(R.string.notifications)}" />
+
+                <include
+                    android:id="@+id/layout_option_social_networks"
+                    layout="@layout/item_profile_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs_2"
+                    app:icon="@{context.getDrawable(R.drawable.ic_users)}"
+                    app:layout_constraintTop_toBottomOf="@id/layout_option_notifications"
+                    app:text="@{context.getString(R.string.social_networks)}" />
+
+                <TextView
+                    android:id="@+id/tv_preferences"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m"
+                    android:text="@string/preferences"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    android:textColor="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/layout_option_social_networks" />
+
+                <View
+                    android:id="@+id/divider_preferences"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/xxs_2"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/tv_preferences" />
+
+                <TextView
+                    android:id="@+id/tv_proximidity_radius"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xs"
+                    android:text="@string/proximity_radius"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    app:layout_constraintTop_toBottomOf="@id/divider_preferences" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_radius"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:stepSize="1.0"
+                    android:valueFrom="0.0"
+                    android:valueTo="100.0"
+                    app:labelBehavior="gone"
+                    app:layout_constraintEnd_toStartOf="@id/tv_radius_km"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_proximidity_radius"
+                    app:onValueChangeListener="@{value -> viewModel.onRadiusChange(value)}"
+                    app:tickVisible="false"
+                    app:trackColorActive="@color/orange"
+                    app:trackColorInactive="@color/light_gray" />
+
+                <TextView
+                    android:id="@+id/tv_radius_km"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.radius}"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    app:layout_constraintBottom_toBottomOf="@id/slider_radius"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/slider_radius"
+                    tools:text="50 KM" />
+
+                <TextView
+                    android:id="@+id/tv_your_network"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m"
+                    android:text="@string/your_network"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    android:textColor="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/slider_radius" />
+
+                <View
+                    android:id="@+id/divider_your_network"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/xxs_2"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/tv_your_network" />
+
+                <TextView
+                    android:id="@+id/tv_business_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:text="@{viewModel.business}"
+                    android:textAppearance="@style/Montserrat.Bold.S"
+                    app:layout_constraintEnd_toEndOf="@id/tv_business"
+                    app:layout_constraintStart_toStartOf="@id/tv_business"
+                    app:layout_constraintTop_toBottomOf="@id/divider_your_network"
+                    tools:text="23" />
+
+                <TextView
+                    android:id="@+id/tv_business"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/business"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    app:layout_constraintEnd_toStartOf="@id/divider_business"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_business_count" />
+
+                <View
+                    android:id="@+id/divider_business"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_business"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_business_count" />
+
+                <TextView
+                    android:id="@+id/tv_ratings_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:text="@{viewModel.ratings}"
+                    android:textAppearance="@style/Montserrat.Bold.S"
+                    app:layout_constraintEnd_toEndOf="@id/tv_ratings"
+                    app:layout_constraintStart_toStartOf="@id/tv_ratings"
+                    app:layout_constraintTop_toBottomOf="@id/divider_your_network"
+                    tools:text="4" />
+
+                <TextView
+                    android:id="@+id/tv_ratings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ratings"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.3"
+                    app:layout_constraintStart_toEndOf="@id/divider_business"
+                    app:layout_constraintTop_toBottomOf="@id/tv_business_count" />
+
+                <TextView
+                    android:id="@+id/tv_followers_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:text="@{viewModel.followers}"
+                    android:textAppearance="@style/Montserrat.Bold.S"
+                    app:layout_constraintEnd_toEndOf="@id/tv_business"
+                    app:layout_constraintStart_toStartOf="@id/tv_business"
+                    app:layout_constraintTop_toBottomOf="@id/divider_business"
+                    tools:text="236" />
+
+                <TextView
+                    android:id="@+id/tv_followers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/followers"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    app:layout_constraintEnd_toStartOf="@id/divider_followers"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_followers_count" />
+
+                <View
+                    android:id="@+id/divider_followers"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_followers"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_followers_count" />
+
+                <TextView
+                    android:id="@+id/tv_following_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs"
+                    android:text="@{viewModel.following}"
+                    android:textAppearance="@style/Montserrat.Bold.S"
+                    app:layout_constraintEnd_toEndOf="@id/tv_following"
+                    app:layout_constraintStart_toStartOf="@id/tv_following"
+                    app:layout_constraintTop_toBottomOf="@id/divider_business"
+                    tools:text="45" />
+
+                <TextView
+                    android:id="@+id/tv_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/following"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Montserrat.Xs"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.3"
+                    app:layout_constraintStart_toEndOf="@id/divider_followers"
+                    app:layout_constraintTop_toBottomOf="@id/tv_following_count" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

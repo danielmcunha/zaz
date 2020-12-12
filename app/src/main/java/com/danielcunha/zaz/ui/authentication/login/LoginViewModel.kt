@@ -50,7 +50,7 @@ class LoginViewModel(app: Application) : BaseViewModel(app) {
 //        }
 
         viewModelScope.launch {
-            loginUseCase.invoke(
+            loginUseCase(
                 LoginRequest(
                     "dmaia_c@hotmail.com",
                     "14157buzz"

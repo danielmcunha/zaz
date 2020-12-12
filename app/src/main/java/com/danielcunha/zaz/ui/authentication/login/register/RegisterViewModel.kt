@@ -62,7 +62,7 @@ class RegisterViewModel(app: Application) : BaseViewModel(app) {
         }
 
         viewModelScope.launch {
-            createUserUseCase.invoke(
+            createUserUseCase(
                 CreateUserRequest(
                     email.value.orEmpty(),
                     0,
