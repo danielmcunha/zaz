@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/item_home"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
 
@@ -17,7 +17,7 @@
         android:title="@string/notifications" />
 
     <item
-        android:id="@+id/item_profile"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/ic_user"
         android:title="@string/profile" />
 </menu>

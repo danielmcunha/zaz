@@ -9,16 +9,15 @@ import com.danielcunha.zaz.ui.core.util.showError
 class RecommendationViewModel(app: Application) : BaseViewModel(app) {
 
     val email = MutableLiveData<String>()
-    val emailError = MutableLiveData<String>()
 
-    init {
-        addValidationRules({
-            android.util.Patterns.EMAIL_ADDRESS.matcher(email.value.orEmpty()).matches()
-                .also { isValid ->
-                    emailError.showError(isValid, getString(R.string.invalid_email))
-                }
-        })
-    }
+//    init {
+//        addValidationRules({
+//            android.util.Patterns.EMAIL_ADDRESS.matcher(email.value.orEmpty()).matches()
+//                .also { isValid ->
+//                    emailError.showError(isValid, getString(R.string.invalid_email))
+//                }
+//        })
+//    }
 
     fun actionRegistered() {
         back.call()
@@ -30,6 +29,6 @@ class RecommendationViewModel(app: Application) : BaseViewModel(app) {
         }
 
         navigateTo.value =
-            RecommendationFragmentDirections.actionRecommendationFragmentToRegisterFragment()
+            RecommendationFragmentDirections.actionRecommendationFragmentToRegisterFragment(email.value.orEmpty())
     }
 }

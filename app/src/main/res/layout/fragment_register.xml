@@ -26,6 +26,7 @@
                 android:layout_height="100dp"
                 android:layout_marginStart="@dimen/xxl"
                 android:layout_marginTop="@dimen/xl"
+                android:layout_marginBottom="@dimen/xl"
                 android:contentDescription="@string/logo"
                 android:src="@mipmap/ic_launcher"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +39,6 @@
                 android:layout_width="@dimen/xxl_4"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:layout_marginTop="@dimen/m"
                 android:contentDescription="@string/app_name"
                 app:layout_constraintBottom_toBottomOf="@id/iv_logo"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -182,6 +182,7 @@
                     android:layout_marginHorizontal="@dimen/s"
                     android:layout_marginTop="@dimen/s"
                     android:onClick="@{_->viewModel.actionRegister()}"
+                    android:enabled="@{!viewModel.isLoading()}"
                     android:text="@string/register"
                     android:textColor="@color/white" />
 

@@ -1,11 +1,10 @@
 package com.danielcunha.zaz.ui.authentication.login
 
-import android.os.Bundle
-import androidx.navigation.findNavController
 import com.danielcunha.zaz.R
 import com.danielcunha.zaz.databinding.FragmentLoginBinding
 import com.danielcunha.zaz.ui.authentication.AuthenticationFragmentDirections
 import com.danielcunha.zaz.ui.core.base.BaseFragment
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {

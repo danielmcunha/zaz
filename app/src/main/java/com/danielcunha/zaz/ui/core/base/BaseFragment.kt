@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.danielcunha.zaz.BR
 import com.danielcunha.zaz.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -61,12 +63,13 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
             mainNavController.navigate(it)
         }
 
-        viewModel.back.observe(this) {
+        viewModel.back.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
 
-        viewModel.error.observe(this) {
-
+        viewModel.errorMessage.observe(viewLifecycleOwner) {
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.red)).show()
         }
 
         setupFragment()

@@ -10,4 +10,10 @@
         android:name="com.danielcunha.zaz.ui.bottomMenu.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.danielcunha.zaz.ui.bottomMenu.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

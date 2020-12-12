@@ -22,7 +22,6 @@
         android:label="RecommendationFragment"
         tools:layout="@layout/fragment_recommendation">
 
-
         <action
             android:id="@+id/action_recommendationFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
@@ -33,6 +32,10 @@
         android:name="com.danielcunha.zaz.ui.authentication.login.register.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register">
+
+        <argument
+            android:name="sponsorEmail"
+            app:argType="string" />
     </fragment>
 
 </navigation>

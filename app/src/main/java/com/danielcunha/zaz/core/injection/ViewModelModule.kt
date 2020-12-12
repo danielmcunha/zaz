@@ -8,6 +8,7 @@ import com.danielcunha.zaz.ui.authentication.login.register.RegisterViewModel
 import com.danielcunha.zaz.ui.bottomMenu.BottomMenuViewModel
 import com.danielcunha.zaz.ui.bottomMenu.home.HomeViewModel
 import com.danielcunha.zaz.ui.bottomMenu.home.tabList.AdListViewModel
+import com.danielcunha.zaz.ui.bottomMenu.profile.ProfileViewModel
 import com.danielcunha.zaz.ui.newAd.NewAdViewModel
 import org.koin.dsl.module
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -23,4 +24,5 @@ val viewModelModule = module {
     viewModel { AdListViewModel(get()) }
     viewModel { NewAdViewModel(get()) }
     viewModel { AdPostDetailViewModel(get()) }
+    viewModel { ProfileViewModel(get()) }
 }

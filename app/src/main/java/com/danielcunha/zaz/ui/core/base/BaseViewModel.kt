@@ -9,17 +9,16 @@ import androidx.navigation.NavDirections
 import com.danielcunha.zaz.ui.core.base.singleLiveEvent.SingleLiveEvent
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import org.koin.core.KoinComponent
 
-open class BaseViewModel(open val app: Application) : AndroidViewModel(app) {
-
-    private val job: Job = SupervisorJob()
+open class BaseViewModel(open val app: Application) : AndroidViewModel(app), KoinComponent {
 
     val navigateTo = SingleLiveEvent<NavDirections>()
     val navigateToMain = SingleLiveEvent<NavDirections>()
     val back = SingleLiveEvent<Any>()
-    val error = SingleLiveEvent<String>()
 
     val isLoading = MutableLiveData(false)
+    val errorMessage = MutableLiveData<String>()
     val title = MutableLiveData("")
 
     // Validation

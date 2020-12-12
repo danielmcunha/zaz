@@ -2,11 +2,20 @@ package com.danielcunha.zaz.ui.authentication.login.register
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.danielcunha.zaz.R
+import com.danielcunha.zaz.data.remote.requests.CreateUserRequest
+import com.danielcunha.zaz.domain.usecases.CreateUserUseCase
+import com.danielcunha.zaz.domain.usecases.LoginUseCase
 import com.danielcunha.zaz.ui.core.base.BaseViewModel
 import com.danielcunha.zaz.ui.core.util.showError
+import kotlinx.coroutines.launch
+import org.koin.core.inject
 
 class RegisterViewModel(app: Application) : BaseViewModel(app) {
+
+    private val createUserUseCase: CreateUserUseCase by inject()
+    lateinit var sponsorEmail: String
 
     val name = MutableLiveData<String>()
     val email = MutableLiveData<String>()
@@ -17,6 +26,8 @@ class RegisterViewModel(app: Application) : BaseViewModel(app) {
     val emailError = MutableLiveData<String>()
     val passwordError = MutableLiveData<String>()
     val confirmPasswordError = MutableLiveData<String>()
+
+    val registerSuccess = MutableLiveData<Boolean>()
 
     init {
         addValidationRules(
@@ -36,7 +47,7 @@ class RegisterViewModel(app: Application) : BaseViewModel(app) {
                 }
             },
             {
-                confirmPassword.equals(password.value.orEmpty()).also { isValid ->
+                confirmPassword.value.equals(password.value.orEmpty()).also { isValid ->
                     confirmPasswordError.showError(isValid, getString(R.string.invalid_confirm_password))
                 }
             }
@@ -44,11 +55,33 @@ class RegisterViewModel(app: Application) : BaseViewModel(app) {
     }
 
     fun actionRegister() {
+        isLoading.value = true
+
         if (!validate()) {
             return
         }
 
-
+        viewModelScope.launch {
+            createUserUseCase.invoke(
+                CreateUserRequest(
+                    email.value.orEmpty(),
+                    0,
+                    name.value.orEmpty(),
+                    sponsorEmail,
+                    password.value.orEmpty()
+                )
+            ).fold(
+                success = {
+                    registerSuccess.value = true
+                },
+                failure = {
+                    errorMessage.value = it.message
+                },
+                finally = {
+                    isLoading.value = false
+                }
+            )
+        }
     }
 
     fun actionRegistered() {

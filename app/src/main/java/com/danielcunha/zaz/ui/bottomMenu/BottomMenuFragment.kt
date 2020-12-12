@@ -1,12 +1,12 @@
 package com.danielcunha.zaz.ui.bottomMenu
 
-import android.os.Bundle
-import android.view.Gravity
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.widget.TextView
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.danielcunha.zaz.R
 import com.danielcunha.zaz.databinding.FragmentBottomMenuBinding
@@ -18,8 +18,25 @@ class BottomMenuFragment : BaseFragment<BottomMenuViewModel, FragmentBottomMenuB
     override fun layoutResId() = R.layout.fragment_bottom_menu
 
     override fun setupFragment() {
+        setupNavController()
         setupDrawer()
         setupBottomMenu()
+    }
+
+    private fun setupNavController() {
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.homeFragment -> {
+                    binding.ivLogo.visibility = VISIBLE
+                    binding.tvHeaderTitle.visibility = GONE
+                }
+                else -> {
+                    binding.ivLogo.visibility = GONE
+                    binding.tvHeaderTitle.visibility = VISIBLE
+                }
+            }
+        }
     }
 
     private fun setupDrawer() {
@@ -32,9 +49,14 @@ class BottomMenuFragment : BaseFragment<BottomMenuViewModel, FragmentBottomMenuB
                 }
             }
         }
+
+        binding.navView.getHeaderView(0)
+            .findViewById<TextView>(R.id.tv_user_name)
+            .text = viewModel.authUser.user.name
     }
 
     private fun setupBottomMenu() {
-        binding.bottomNav.setupWithNavController(findNavController())
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        binding.bottomNav.setupWithNavController(navHostFragment.navController)
     }
 }

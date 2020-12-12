@@ -10,129 +10,134 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/orange">
+        android:fillViewport="true">
 
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="@dimen/xl"
-            android:contentDescription="@string/logo"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/layout_logo"
-            android:src="@drawable/logo_zaz"
-            android:layout_width="@dimen/xxl_4"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:layout_marginTop="@dimen/m"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_logo"
-            android:contentDescription="@string/app_name" />
-
-        <TextView
-            android:id="@+id/tvTitle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/m"
-            android:layout_marginTop="@dimen/l"
-            android:gravity="center"
-            android:text="@string/identify_email"
-            android:textAllCaps="true"
-            android:textAppearance="@style/Montserrat.Bold.M"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/layout_logo" />
+            android:layout_height="match_parent"
+            android:background="@color/orange">
 
-        <TextView
-            android:id="@+id/tv_subtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/xl"
-            android:layout_marginTop="@dimen/l"
-            android:gravity="center"
-            android:text="@string/type_recommendation_email"
-            android:textAppearance="@style/Montserrat.Medium.Xs"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="@dimen/xl"
+                android:contentDescription="@string/logo"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/xl"
-            android:background="@drawable/shape_xs_rounded_top"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="@dimen/m"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_subtitle">
+            <ImageView
+                android:id="@+id/layout_logo"
+                android:layout_width="@dimen/xxl_4"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/logo_zaz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_logo" />
 
             <TextView
+                android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/m"
+                android:layout_marginTop="@dimen/l"
                 android:gravity="center"
-                android:text="@string/type_your_email"
-                android:textAppearance="@style/Montserrat.Xxs" />
+                android:text="@string/identify_email"
+                android:textAllCaps="true"
+                android:textAppearance="@style/Montserrat.Bold.M"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/layout_logo" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_email"
-                style="@style/TextInputLayout.Rounded"
+            <TextView
+                android:id="@+id/tv_subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/xxs_2"
-                android:hint="@string/email"
-                app:errorState="@{viewModel.emailError}">
+                android:layout_marginHorizontal="@dimen/xl"
+                android:layout_marginTop="@dimen/l"
+                android:gravity="center"
+                android:text="@string/type_recommendation_email"
+                android:textAppearance="@style/Montserrat.Medium.Xs"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_email"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xl"
+                android:background="@drawable/shape_xs_rounded_top"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/m"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+                app:layout_constraintVertical_bias="1.0">
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_envelope"
-                    android:text="@={viewModel.email}"
-                    android:drawablePadding="@dimen/xxs_2"
-                    android:paddingHorizontal="@dimen/xs" />
+                    android:gravity="center"
+                    android:text="@string/type_email"
+                    android:textAppearance="@style/Montserrat.Xxs" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_email"
+                    style="@style/TextInputLayout.Rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs_2"
+                    android:hint="@string/email">
 
-            <TextView
-                android:id="@+id/tv_forget_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/xxs_2"
-                android:gravity="center"
-                android:text="@string/forget_your_password"
-                android:textAppearance="@style/Montserrat.Xxs"
-                android:textColor="@color/orange" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_envelope"
+                        android:drawablePadding="@dimen/xxs_2"
+                        android:paddingHorizontal="@dimen/xs"
+                        android:text="@={viewModel.email}" />
 
-            <Button
-                android:id="@+id/btn_login"
-                style="@style/Button.Xs"
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="@dimen/s"
-                android:layout_marginTop="@dimen/s"
-                android:onClick="@{_->viewModel.actionProceed()}"
-                android:text="@string/proceed"
-                android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btn_register"
-                style="@style/Button.Outlined.Xs.Orange"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/xxl"
-                android:layout_marginHorizontal="@dimen/s"
-                android:layout_marginTop="@dimen/s"
-                android:text="@string/i_already_have_registration"
-                android:onClick="@{_->viewModel.actionRegistered()}"/>
+                <TextView
+                    android:id="@+id/tv_forget_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/xxs_2"
+                    android:gravity="center"
+                    android:text="@string/forget_your_password"
+                    android:textAppearance="@style/Montserrat.Xxs"
+                    android:textColor="@color/orange" />
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/btn_login"
+                    style="@style/Button.Xs"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/s"
+                    android:layout_marginTop="@dimen/s"
+                    android:onClick="@{_->viewModel.actionProceed()}"
+                    android:text="@string/proceed"
+                    android:textColor="@color/white" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/btn_register"
+                    style="@style/Button.Outlined.Xs.Orange"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/xxl"
+                    android:layout_marginHorizontal="@dimen/s"
+                    android:layout_marginTop="@dimen/s"
+                    android:onClick="@{_->viewModel.actionRegistered()}"
+                    android:text="@string/i_already_have_registration" />
 
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
