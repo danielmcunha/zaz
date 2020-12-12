@@ -10,10 +10,14 @@
         <item name="textAllCaps">true</item>
     </style>
 
-
     <style name="Montserrat.Bold" parent="Montserrat">
         <item name="android:fontFamily">@font/montserrat_bold</item>
     </style>
+
+    <style name="Montserrat.Italic" parent="Montserrat">
+        <item name="android:fontFamily">@font/montserrat_italic</item>
+    </style>
+
 
     <style name="Montserrat.Bold.Xs" parent="Montserrat.Bold">
         <item name="android:textSize">16sp</item>
@@ -46,6 +50,10 @@
 
     <style name="Montserrat.S" parent="Montserrat">
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Montserrat.Italic.Xxs" parent="Montserrat.Italic">
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="Montserrat.Bold.Xxs" parent="Montserrat.Bold">

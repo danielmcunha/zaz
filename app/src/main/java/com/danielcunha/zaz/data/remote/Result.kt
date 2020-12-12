@@ -7,16 +7,10 @@ sealed class Result<out T, out E> {
     data class Success<out T>(val value: T) : Result<T, Nothing>()
     data class Failure<out E>(val error: E) : Result<Nothing, E>()
 
-    fun <C> fold(success: (T) -> C, failure: (E) -> C, finally: (() -> Unit)? = null) {
+    fun <C> fold(success: (T) -> C, failure: (E) -> C) {
         when (this) {
-            is Success -> {
-                success(value)
-                finally?.invoke()
-            }
-            is Failure -> {
-                failure(error)
-                finally?.invoke()
-            }
+            is Success -> success(value)
+            is Failure -> failure(error)
         }
     }
 

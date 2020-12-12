@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.danielcunha.zaz.R
 import com.danielcunha.zaz.databinding.FragmentBottomMenuBinding
@@ -31,9 +30,10 @@ class BottomMenuFragment : BaseFragment<BottomMenuViewModel, FragmentBottomMenuB
                     binding.ivLogo.visibility = VISIBLE
                     binding.tvHeaderTitle.visibility = GONE
                 }
-                else -> {
+                R.id.profileFragment -> {
                     binding.ivLogo.visibility = GONE
                     binding.tvHeaderTitle.visibility = VISIBLE
+                    binding.tvHeaderTitle.text = getString(R.string.profile)
                 }
             }
         }

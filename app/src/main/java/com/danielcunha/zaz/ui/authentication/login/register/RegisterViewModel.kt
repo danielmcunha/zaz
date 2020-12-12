@@ -76,9 +76,6 @@ class RegisterViewModel(app: Application) : BaseViewModel(app) {
                 },
                 failure = {
                     errorMessage.value = it.message
-                },
-                finally = {
-                    isLoading.value = false
                 }
             )
         }

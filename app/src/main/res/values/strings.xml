@@ -88,5 +88,7 @@
     <string name="all">Todas</string>
     <string name="rate_ad">Avaliar este anúncio</string>
     <string name="type_email">Digite o email</string>
+    <string name="setup_profile">Configurar perfil</string>
 
+    <!--Profile-->
 </resources>
