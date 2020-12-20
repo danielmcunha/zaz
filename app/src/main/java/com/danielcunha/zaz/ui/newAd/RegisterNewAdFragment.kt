@@ -2,6 +2,7 @@ package com.danielcunha.zaz.ui.newAd
 
 import android.net.Uri
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.danielcunha.zaz.R
 import com.danielcunha.zaz.databinding.FragmentRegisterNewAdBinding
@@ -19,6 +20,22 @@ class RegisterNewAdFragment : BaseFragment<RegisterNewAdViewModel, FragmentRegis
     override fun setupFragment() {
         binding.viewHolder = args.viewHolder
 
+        observeCameraResult()
+    }
+
+    override fun setupViewModel() {
+        viewModel.openCamera.observe(this) {
+            requestCameraPermissions()
+        }
+    }
+
+    override fun onCameraPermissionGranted() {
+        findNavController().navigate(
+            RegisterNewAdFragmentDirections.actionRegisterNewAdFragmentToCameraFragment()
+        )
+    }
+
+    private fun observeCameraResult() {
         getFragmentResult<String>(CAMERA_ERROR_RESULT)?.observe(this) {
 
         }
@@ -26,9 +43,5 @@ class RegisterNewAdFragment : BaseFragment<RegisterNewAdViewModel, FragmentRegis
         getFragmentResult<Uri>(CAMERA_SUCCESS_RESULT)?.observe(this) {
 
         }
-    }
-
-    override fun setupViewModel() {
-
     }
 }

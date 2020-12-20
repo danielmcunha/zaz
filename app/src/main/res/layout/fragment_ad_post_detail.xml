@@ -79,8 +79,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="@dimen/xl"
-                android:fillViewport="true">
+                android:fillViewport="true"
+                android:paddingBottom="@dimen/xl">
 
                 <ImageView
                     android:id="@+id/iv_ad"
@@ -212,11 +212,11 @@
 
                 <TextView
                     android:id="@+id/tv_see_profile"
-                    style="@style/Montserrat.Bold.Xxs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/xxs"
                     android:text="@string/see_profile"
+                    android:textAppearance="@style/Montserrat.Bold.Xxs"
                     android:textColor="@color/orange"
                     app:layout_constraintBottom_toBottomOf="@id/civ_user_image"
                     app:layout_constraintStart_toEndOf="@id/civ_user_image"

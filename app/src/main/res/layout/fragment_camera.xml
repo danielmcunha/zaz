@@ -29,6 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/xxl"
             android:layout_weight="1"
+            android:onClick="@{_->viewModel.actionTakePhoto()}"
             app:cardBackgroundColor="@color/orange"
             app:cardCornerRadius="@dimen/xxs_3"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +41,9 @@
                 android:id="@+id/captureImg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="@dimen/xxs_2"
                 android:contentDescription="@string/capture"
                 android:src="@drawable/ic_camera"
-                android:onClick="@{_->viewModel.actionTakePhoto()}"
                 app:tint="@color/white" />
 
         </androidx.cardview.widget.CardView>

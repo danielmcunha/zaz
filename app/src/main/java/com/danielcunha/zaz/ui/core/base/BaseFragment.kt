@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.danielcunha.zaz.BR
 import com.danielcunha.zaz.R
+import com.danielcunha.zaz.ui.core.util.CameraPermissionHelper
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -93,21 +94,29 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
             ?.getLiveData(key)
     }
 
-//    protected fun requestCameraPermissions() {
-//        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
-//            CameraPermissionHelper.requestCameraPermission(requireActivity())
-//        }
-//    }
-//
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int,
-//        permissions: Array<out String>,
-//        grantResults: IntArray
-//    ) {
-//        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
-//            if (!CameraPermissionHelper.shouldShowRequestPermissionRationale(requireActivity())) {
-//                CameraPermissionHelper.launchPermissionSettings(requireActivity())
-//            }
-//        }
-//    }
+    open fun onCameraPermissionGranted() {
+
+    }
+
+    protected fun requestCameraPermissions() {
+        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
+            CameraPermissionHelper.requestCameraPermission(this)
+        } else {
+            onCameraPermissionGranted()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (!CameraPermissionHelper.hasCameraPermission(requireActivity())) {
+            if (!CameraPermissionHelper.shouldShowRequestPermissionRationale(this)) {
+                CameraPermissionHelper.launchPermissionSettings(requireActivity())
+            }
+        } else {
+            onCameraPermissionGranted()
+        }
+    }
 }

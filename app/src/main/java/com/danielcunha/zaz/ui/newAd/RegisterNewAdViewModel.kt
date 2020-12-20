@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.danielcunha.zaz.R
 import com.danielcunha.zaz.ui.core.base.BaseViewModel
+import com.danielcunha.zaz.ui.core.base.singleLiveEvent.SingleLiveEvent
 
 class RegisterNewAdViewModel(app: Application) : BaseViewModel(app) {
 
@@ -11,6 +12,7 @@ class RegisterNewAdViewModel(app: Application) : BaseViewModel(app) {
     val currency = MutableLiveData<String>()
     val amount = MutableLiveData<String>()
     val description = MutableLiveData<String>()
+    val openCamera = SingleLiveEvent<Any>()
 
     init {
         title.value = getString(R.string.new_ad)
@@ -29,7 +31,7 @@ class RegisterNewAdViewModel(app: Application) : BaseViewModel(app) {
     }
 
     fun actionChooseImages() {
-        navigateTo.value = RegisterNewAdFragmentDirections.actionRegisterNewAdFragmentToCameraFragment()
+        openCamera.call()
     }
 
     fun actionPublishAd() {

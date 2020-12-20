@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:textAllCaps="true"
             android:textColor="@color/orange"
+            android:text="@{viewModel.title}"
             tools:text="Novo anúncio"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

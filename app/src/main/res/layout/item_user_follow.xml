@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewHolder"
+            type="com.danielcunha.zaz.ui.followers.adapter.UserFollow" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/xxs_2">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_profile_image"
+            android:layout_width="@dimen/xxl_2"
+            android:layout_height="@dimen/xxl_2"
+            android:src="@{viewHolder.profileImage}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/image_profile_example" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xxs"
+            android:textAppearance="@style/Montserrat.Bold.Xs"
+            android:textSize="14sp"
+            android:text="@{viewHolder.name}"
+            app:layout_constraintBottom_toTopOf="@id/tv_see_profile"
+            app:layout_constraintStart_toEndOf="@id/iv_profile_image"
+            app:layout_constraintTop_toTopOf="@id/iv_profile_image"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Jeff Bezos" />
+
+        <TextView
+            android:id="@+id/tv_see_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/see_profile"
+            android:textAppearance="@style/Montserrat.Bold.Xxs"
+            android:textColor="@color/orange"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_user_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+
+        <ImageView
+            android:id="@+id/iv_see_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xxs_4"
+            android:contentDescription="@string/see_profile"
+            android:src="@drawable/ic_right"
+            app:layout_constraintBottom_toBottomOf="@id/tv_see_profile"
+            app:layout_constraintStart_toEndOf="@id/tv_see_profile"
+            app:layout_constraintTop_toTopOf="@id/tv_see_profile" />
+
+        <Button
+            style="@style/Button.Bold"
+            android:layout_width="@dimen/xxl_4"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_see_profile"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name"
+            tools:text="Deixar de seguir" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -47,6 +47,8 @@
                         android:layout_width="@dimen/xxl_3"
                         android:layout_height="@dimen/xxl_3"
                         android:layout_marginTop="@dimen/xs"
+                        android:onClick="@{_ -> viewModel.actionTakePhoto()}"
+                        android:src="@drawable/image_profile_example"
                         tools:src="@drawable/image_profile_example" />
 
                     <ImageView

@@ -9,5 +9,15 @@
         android:id="@+id/editProfileFragment"
         android:name="com.danielcunha.zaz.ui.bottomMenu.profile.edit.EditProfileFragment"
         android:label="EditProfileFragment"
-        tools:layout="@layout/fragment_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.danielcunha.zaz.ui.core.camera.CameraFragment"
+        android:label="CameraFragment"
+        tools:layout="@layout/fragment_camera" />
 </navigation>

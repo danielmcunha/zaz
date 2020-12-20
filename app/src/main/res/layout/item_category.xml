@@ -3,18 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewHolder"
+            type="com.danielcunha.zaz.ui.bottomMenu.home.tabList.adapter.Category" />
+    </data>
+
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xs"
         tools:background="@color/white">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:layout_width="@dimen/xxl_2"
             android:layout_height="@dimen/xxl_2"
-            app:civ_border_color="@color/orange"
-            app:civ_border_width="2dp"
+            android:padding="@dimen/xxs"
+            android:background="@drawable/shape_circle_outline"
             android:contentDescription="@string/category"
-            tools:src="@drawable/ic_handshake" />
+            app:srcRes="@{viewHolder.drawable}"
+            tools:src="@drawable/ic_building" />
 
     </FrameLayout>
 
