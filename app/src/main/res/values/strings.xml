@@ -90,6 +90,7 @@
     <string name="business">Negócios</string>
     <string name="my_informations">Meus dados</string>
     <string name="phone">Telefone</string>
+    <string name="ads">Anúncios</string>
 
     <!--Ad post-->
     <string name="ad_image">Imagem anúncio</string>
@@ -105,6 +106,13 @@
     <string name="rate_ad">Avaliar este anúncio</string>
     <string name="type_email">Digite o email</string>
     <string name="categories">Categorias</string>
-    <string name="ads">Anúncios</string>
 
+    <!--Notifications-->
+    <string name="see_ad">Ver anúncio</string>
+
+    <!--User follow-->
+    <string name="unfollow">Deixar de seguir</string>
+    <string name="follow">Seguir</string>
+    <string name="rating">Avaliação</string>
+    <string name="rate">Avaliar</string>
 </resources>

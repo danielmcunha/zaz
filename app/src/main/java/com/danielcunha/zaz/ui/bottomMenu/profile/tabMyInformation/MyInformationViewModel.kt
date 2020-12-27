@@ -9,4 +9,5 @@ class MyInformationViewModel(app: Application) : BaseViewModel(app) {
     val email = MutableLiveData("floyd.miles@gmail.com")
     val phone = MutableLiveData("(51) 99999-9999")
     val social = MutableLiveData("@miles.floyd")
+    val profileRating = MutableLiveData(3.5f)
 }

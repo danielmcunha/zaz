@@ -161,6 +161,7 @@
                     android:layout_marginHorizontal="@dimen/xs"
                     android:layout_marginTop="@dimen/xxs"
                     android:text="@{viewModel.adDescription}"
+                    android:textIsSelectable="true"
                     android:textAppearance="@style/Montserrat.Xxs"
                     android:textSize="14sp"
                     app:layout_constraintTop_toBottomOf="@id/divider_description"

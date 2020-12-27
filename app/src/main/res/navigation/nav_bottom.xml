@@ -15,5 +15,23 @@
         android:id="@+id/profileFragment"
         android:name="com.danielcunha.zaz.ui.bottomMenu.profile.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_userFollowFragment"
+            app:destination="@id/userFollowFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userFollowFragment"
+        android:name="com.danielcunha.zaz.ui.bottomMenu.user.follow.UserFollowFragment"
+        android:label="UserFollowFragment"
+        tools:layout="@layout/fragment_user_follow" />
+
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.danielcunha.zaz.ui.bottomMenu.notification.NotificationsFragment"
+        android:label="NotificationsFragment"
+        tools:layout="@layout/fragment_notifications" />
+
 </navigation>

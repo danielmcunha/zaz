@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewHolder"
+            type="com.danielcunha.zaz.ui.bottomMenu.home.tabSearch.adapter.SearchCategory" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/xxs_3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@{viewHolder.selected ? @drawable/shape_xl_rounded_orange : @drawable/shape_xl_rounded_outline}"
+            android:drawablePadding="@dimen/m"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/m"
+            android:paddingVertical="@dimen/xxs_2"
+            android:text="@{viewHolder.text}"
+            android:textAllCaps="true"
+            android:textAppearance="@style/Montserrat.Bold.Xxs"
+            android:textColor="@{viewHolder.selected ? @color/white : @color/orange}"
+            app:drawableStartRes="@{viewHolder.selected ? viewHolder.iconSelected : viewHolder.iconUnselected}"
+            tools:drawableStart="@drawable/ic_gear"
+            tools:background="@drawable/shape_xl_rounded_outline"
+            tools:text="Serviços" />
+
+    </FrameLayout>
+
+</layout>

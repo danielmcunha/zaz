@@ -22,6 +22,7 @@ class AdPostAdapter : RVBaseAdapter<AdPost>() {
 }
 
 data class AdPost(
+    val id: Long,
     val title: String,
     val price: String,
     val postImage: Drawable?,

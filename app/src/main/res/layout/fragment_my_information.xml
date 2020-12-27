@@ -11,43 +11,62 @@
         <import type="com.danielcunha.zaz.R" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="@dimen/xs">
+        android:fillViewport="true">
 
-        <include
-            android:id="@+id/layout_email"
-            layout="@layout/item_profile_information"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xs"
-            app:icon="@{R.drawable.ic_mail}"
-            app:label="@{context.getString(R.string.email)}"
-            app:layout_constraintTop_toTopOf="parent"
-            app:value="@{viewModel.email}" />
+            android:paddingHorizontal="@dimen/xs"
+            android:paddingBottom="@dimen/xs">
 
-        <include
-            android:id="@+id/layout_phone"
-            layout="@layout/item_profile_information"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xs"
-            app:icon="@{R.drawable.ic_phone}"
-            app:label="@{context.getString(R.string.phone)}"
-            app:layout_constraintTop_toBottomOf="@id/layout_email"
-            app:value="@{viewModel.phone}" />
+            <include
+                android:id="@+id/layout_email"
+                layout="@layout/item_profile_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xs"
+                app:icon="@{R.drawable.ic_mail}"
+                app:label="@{context.getString(R.string.email)}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:value="@{viewModel.email}" />
 
-        <include
-            android:id="@+id/layout_social_media"
-            layout="@layout/item_profile_information"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xs"
-            app:icon="@{R.drawable.ic_message_circle}"
-            app:label="@{context.getString(R.string.social_networks)}"
-            app:layout_constraintTop_toBottomOf="@id/layout_phone"
-            app:value="@{viewModel.social}" />
+            <include
+                android:id="@+id/layout_phone"
+                layout="@layout/item_profile_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xs"
+                app:icon="@{R.drawable.ic_phone}"
+                app:label="@{context.getString(R.string.phone)}"
+                app:layout_constraintTop_toBottomOf="@id/layout_email"
+                app:value="@{viewModel.phone}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <include
+                android:id="@+id/layout_social_media"
+                layout="@layout/item_profile_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xs"
+                app:icon="@{R.drawable.ic_message_circle}"
+                app:label="@{context.getString(R.string.social_networks)}"
+                app:layout_constraintTop_toBottomOf="@id/layout_phone"
+                app:value="@{viewModel.social}" />
+
+            <include
+                android:id="@+id/layout_rating"
+                layout="@layout/item_profile_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xs"
+                app:layout_constraintTop_toBottomOf="@id/layout_social_media"
+                app:stars="@{viewModel.profileRating}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </layout>

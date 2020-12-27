@@ -1,14 +1,15 @@
 package com.danielcunha.zaz.ui.core.base
 
 import android.app.Application
+import android.graphics.drawable.Drawable
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
 import com.danielcunha.zaz.ui.core.base.singleLiveEvent.SingleLiveEvent
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.SupervisorJob
 import org.koin.core.KoinComponent
 
 open class BaseViewModel(open val app: Application) : AndroidViewModel(app), KoinComponent {
@@ -73,10 +74,14 @@ open class BaseViewModel(open val app: Application) : AndroidViewModel(app), Koi
     }
 
     protected fun getString(@StringRes resId: Int): String {
-        return getApplication<Application>().getString(resId)
+        return app.getString(resId)
     }
 
     protected fun getString(@StringRes resId: Int, vararg formatArgs: Any): String {
-        return getApplication<Application>().getString(resId, *formatArgs)
+        return app.getString(resId, *formatArgs)
+    }
+
+    protected fun getDrawable(@DrawableRes resId: Int): Drawable? {
+        return ContextCompat.getDrawable(app, resId)
     }
 }

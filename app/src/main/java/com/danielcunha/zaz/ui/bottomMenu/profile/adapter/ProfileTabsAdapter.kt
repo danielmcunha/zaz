@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.danielcunha.zaz.ui.bottomMenu.profile.tabList.ProfileAdListFragment
 import com.danielcunha.zaz.ui.bottomMenu.profile.tabMyInformation.MyInformationFragment
+import java.lang.RuntimeException
 
 class ProfileTabsAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
@@ -13,7 +14,7 @@ class ProfileTabsAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         return when (position) {
             0 -> ProfileAdListFragment()
             1 -> MyInformationFragment()
-            else -> throw Exception("Illegal tab")
+            else -> throw RuntimeException("Illegal tab")
         }
     }
 }

@@ -5,9 +5,11 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewHolder"
-            type="com.danielcunha.zaz.ui.followers.adapter.UserFollow" />
+            type="com.danielcunha.zaz.ui.bottomMenu.user.follow.adapter.UserFollow" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,9 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xxs"
+            android:text="@{viewHolder.name}"
             android:textAppearance="@style/Montserrat.Bold.Xs"
             android:textSize="14sp"
-            android:text="@{viewHolder.name}"
             app:layout_constraintBottom_toTopOf="@id/tv_see_profile"
             app:layout_constraintStart_toEndOf="@id/iv_profile_image"
             app:layout_constraintTop_toTopOf="@id/iv_profile_image"
@@ -61,14 +63,27 @@
             app:layout_constraintTop_toTopOf="@id/tv_see_profile" />
 
         <Button
+            style="@style/Button.Outlined"
+            android:layout_width="@dimen/xxl_4"
+            android:layout_height="wrap_content"
+            android:text="@string/follow"
+            android:textSize="10sp"
+            android:visibility="@{!viewHolder.following ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/tv_see_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name" />
+
+        <Button
             style="@style/Button.Bold"
             android:layout_width="@dimen/xxl_4"
             android:layout_height="wrap_content"
+            android:text="@string/unfollow"
             android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{viewHolder.following ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="@id/tv_see_profile"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_user_name"
-            tools:text="Deixar de seguir" />
+            tools:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

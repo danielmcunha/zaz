@@ -35,6 +35,11 @@ class BottomMenuFragment : BaseFragment<BottomMenuViewModel, FragmentBottomMenuB
                     binding.tvHeaderTitle.visibility = VISIBLE
                     binding.tvHeaderTitle.text = getString(R.string.profile)
                 }
+                R.id.notificationsFragment -> {
+                    binding.ivLogo.visibility = GONE
+                    binding.tvHeaderTitle.visibility = VISIBLE
+                    binding.tvHeaderTitle.text = getString(R.string.notifications)
+                }
             }
         }
     }

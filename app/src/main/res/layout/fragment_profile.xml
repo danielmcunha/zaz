@@ -10,166 +10,176 @@
             type="com.danielcunha.zaz.ui.bottomMenu.profile.ProfileViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="@dimen/xs">
+        android:fillViewport="true">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_profile_image"
-            android:layout_width="@dimen/xxl_3"
-            android:layout_height="@dimen/xxl_3"
-            android:layout_marginTop="@dimen/xs"
-            android:src="@drawable/image_profile_example"
-            app:civ_border_color="@color/orange"
-            app:civ_border_width="@dimen/xxs_4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/image_profile_example" />
-
-        <TextView
-            android:id="@+id/tv_user_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xxs_2"
-            android:textAlignment="center"
-            android:textAppearance="@style/Montserrat.Bold.S"
-            android:text="@{viewModel.name}"
-            app:layout_constraintTop_toBottomOf="@id/iv_profile_image"
-            tools:text="Floyd Miles" />
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/xs">
 
-        <TextView
-            android:id="@+id/tv_user_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xxs_4"
-            android:textAlignment="center"
-            android:textAppearance="@style/Montserrat.Italic.Xxs"
-            android:text="@{viewModel.profileDescription}"
-            app:layout_constraintTop_toBottomOf="@id/tv_user_name"
-            tools:text="Jovem programador que trabalha como engenheiro de segurança virtual durante o dia, e como hacker vigilante durante a noite" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile_image"
+                android:layout_width="@dimen/xxl_3"
+                android:layout_height="@dimen/xxl_3"
+                android:layout_marginTop="@dimen/xs"
+                android:src="@drawable/image_profile_example"
+                app:civ_border_color="@color/orange"
+                app:civ_border_width="@dimen/xxs_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/image_profile_example" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_base_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m"
-            app:cardCornerRadius="@dimen/xs"
-            app:cardUseCompatPadding="true"
-            app:contentPadding="@dimen/xxs"
-            app:layout_constraintTop_toBottomOf="@id/tv_user_description">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <TextView
+                android:id="@+id/tv_user_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xxs_2"
+                android:text="@{viewModel.name}"
+                android:textAlignment="center"
+                android:textAppearance="@style/Montserrat.Bold.S"
+                app:layout_constraintTop_toBottomOf="@id/iv_profile_image"
+                tools:text="Floyd Miles" />
 
-                <TextView
-                    android:id="@+id/tv_following_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/Montserrat.Bold.S"
-                    android:text="@{viewModel.following}"
-                    app:layout_constraintEnd_toEndOf="@id/tv_following"
-                    app:layout_constraintStart_toStartOf="@id/tv_following"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="6" />
+            <TextView
+                android:id="@+id/tv_user_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xxs_4"
+                android:text="@{viewModel.profileDescription}"
+                android:textAlignment="center"
+                android:textAppearance="@style/Montserrat.Italic.Xxs"
+                app:layout_constraintTop_toBottomOf="@id/tv_user_name"
+                tools:text="Jovem programador que trabalha como engenheiro de segurança virtual durante o dia, e como hacker vigilante durante a noite" />
 
-                <TextView
-                    android:id="@+id/tv_following"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/following"
-                    android:textAppearance="@style/Montserrat.Xs"
-                    app:layout_constraintEnd_toStartOf="@id/guideline1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_following_count" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_base_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m"
+                app:cardCornerRadius="@dimen/xs"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/xxs"
+                app:layout_constraintTop_toBottomOf="@id/tv_user_description">
 
-                <View
-                    android:id="@+id/divider1"
-                    android:layout_width="1dp"
-                    android:layout_height="0dp"
-                    android:background="@color/light_gray"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/guideline1"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.33" />
+                    <TextView
+                        android:id="@+id/tv_following_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{_->viewModel.actionSeeFollowing()}"
+                        android:text="@{viewModel.following}"
+                        android:textAppearance="@style/Montserrat.Bold.S"
+                        app:layout_constraintEnd_toEndOf="@id/tv_following"
+                        app:layout_constraintStart_toStartOf="@id/tv_following"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="6" />
 
-                <TextView
-                    android:id="@+id/tv_followers_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/Montserrat.Bold.S"
-                    android:text="@{viewModel.followers}"
-                    app:layout_constraintEnd_toEndOf="@id/tv_followers"
-                    app:layout_constraintStart_toStartOf="@id/tv_followers"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="10" />
+                    <TextView
+                        android:id="@+id/tv_following"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{_->viewModel.actionSeeFollowing()}"
+                        android:text="@string/following"
+                        android:textAppearance="@style/Montserrat.Xs"
+                        app:layout_constraintEnd_toStartOf="@id/guideline1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_following_count" />
 
-                <TextView
-                    android:id="@+id/tv_followers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/followers"
-                    android:textAppearance="@style/Montserrat.Xs"
-                    app:layout_constraintEnd_toStartOf="@id/guideline2"
-                    app:layout_constraintStart_toEndOf="@id/guideline1"
-                    app:layout_constraintTop_toBottomOf="@id/tv_followers_count" />
+                    <View
+                        android:id="@+id/divider1"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/light_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/guideline1"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <View
-                    android:id="@+id/divider2"
-                    android:layout_width="1dp"
-                    android:layout_height="0dp"
-                    android:background="@color/light_gray"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/guideline2"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.33" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.66" />
+                    <TextView
+                        android:id="@+id/tv_followers_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{_->viewModel.actionSeeFollowers()}"
+                        android:text="@{viewModel.followers}"
+                        android:textAppearance="@style/Montserrat.Bold.S"
+                        app:layout_constraintEnd_toEndOf="@id/tv_followers"
+                        app:layout_constraintStart_toStartOf="@id/tv_followers"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="10" />
 
-                <Button
-                    android:id="@+id/btn_setup_profile"
-                    style="@style/Button.Xs"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/xxs_2"
-                    android:onClick="@{_ -> viewModel.actionSetupProfile()}"
-                    android:text="@string/setup_profile"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/guideline2"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/tv_followers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{_->viewModel.actionSeeFollowers()}"
+                        android:text="@string/followers"
+                        android:textAppearance="@style/Montserrat.Xs"
+                        app:layout_constraintEnd_toStartOf="@id/guideline2"
+                        app:layout_constraintStart_toEndOf="@id/guideline1"
+                        app:layout_constraintTop_toBottomOf="@id/tv_followers_count" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <View
+                        android:id="@+id/divider2"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/light_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/guideline2"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.cardview.widget.CardView>
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.66" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tl_tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xxs"
-            app:layout_constraintTop_toBottomOf="@id/card_base_info"/>
+                    <Button
+                        android:id="@+id/btn_setup_profile"
+                        style="@style/Button.Xs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/xxs_2"
+                        android:onClick="@{_ -> viewModel.actionSetupProfile()}"
+                        android:text="@string/setup_profile"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/guideline2"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vp_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tl_tabs"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/xxs"
+                app:layout_constraintTop_toBottomOf="@id/card_base_info" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_content"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tl_tabs" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

@@ -28,10 +28,10 @@
             android:layout_height="@dimen/s"
             android:adjustViewBounds="true"
             android:contentDescription="@{label}"
-            android:src="@{icon}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:srcRes="@{icon}"
             app:tint="@color/orange"
             tools:src="@drawable/ic_mail" />
 
