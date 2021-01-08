@@ -36,12 +36,12 @@ class RegisterNewAdFragment : BaseFragment<RegisterNewAdViewModel, FragmentRegis
     }
 
     private fun observeCameraResult() {
-        getFragmentResult<String>(CAMERA_ERROR_RESULT)?.observe(this) {
-
+        getFragmentResult<String>(CAMERA_ERROR_RESULT)?.observe(viewLifecycleOwner) {
+            showErrorMessage(it)
         }
 
-        getFragmentResult<Uri>(CAMERA_SUCCESS_RESULT)?.observe(this) {
-
+        getFragmentResult<Uri>(CAMERA_SUCCESS_RESULT)?.observe(viewLifecycleOwner) {
+            viewModel.addImage(it)
         }
     }
 }

@@ -69,8 +69,7 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
         }
 
         viewModel.errorMessage.observe(viewLifecycleOwner) {
-            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG)
-                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.red)).show()
+            showErrorMessage(it)
         }
 
         setupFragment()
@@ -81,6 +80,11 @@ abstract class BaseFragment<T : BaseViewModel, V : ViewDataBinding> :
 
     open fun setupFragment() {}
     open fun setupViewModel() {}
+
+    protected fun showErrorMessage(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG)
+            .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.red)).show()
+    }
 
     fun setFragmentResult(key: String, value: Any) {
         findNavController().previousBackStackEntry?.savedStateHandle?.set(

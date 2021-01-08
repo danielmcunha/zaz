@@ -1,10 +1,8 @@
 package com.danielcunha.zaz.domain.mappers
 
-import com.danielcunha.zaz.data.remote.responses.AllBusinessResponse
-import com.danielcunha.zaz.data.remote.responses.BusinessResponse
-import com.danielcunha.zaz.data.remote.responses.CreateUserResponse
-import com.danielcunha.zaz.data.remote.responses.LoginResponse
+import com.danielcunha.zaz.data.remote.responses.*
 import com.danielcunha.zaz.domain.models.Business
+import com.danielcunha.zaz.domain.models.Follower
 import com.danielcunha.zaz.domain.models.User
 
 internal fun LoginResponse.toDomain(): User {
@@ -39,4 +37,15 @@ internal fun BusinessResponse.toDomain(): Business {
         url,
         value
     )
+}
+
+internal fun List<FollowerResponse>.toDomain(): List<Follower> {
+    return map {
+        Follower(
+            it.avatar,
+            it.friendsAmount,
+            it.id,
+            it.name
+        )
+    }
 }

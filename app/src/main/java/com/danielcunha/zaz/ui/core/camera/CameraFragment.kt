@@ -8,6 +8,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.danielcunha.zaz.R
 import com.danielcunha.zaz.databinding.FragmentCameraBinding
 import com.danielcunha.zaz.ui.core.base.BaseFragment
@@ -84,14 +85,20 @@ class CameraFragment : BaseFragment<CameraViewModel, FragmentCameraBinding>() {
             object : ImageCapture.OnImageSavedCallback {
                 override fun onError(exc: ImageCaptureException) {
                     setFragmentResult(CAMERA_ERROR_RESULT, exc.message.orEmpty())
+                    close()
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
 
                     setFragmentResult(CAMERA_SUCCESS_RESULT, savedUri)
+                    close()
                 }
             })
+    }
+
+    private fun close() {
+        findNavController().popBackStack()
     }
 
     companion object {

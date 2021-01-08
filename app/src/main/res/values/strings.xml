@@ -5,6 +5,7 @@
     <string name="a">a</string>
     <string name="logo">logo</string>
     <string name="icon">Icon</string>
+    <string name="close">Fechar</string>
 
     <!--Menu-->
     <string name="home">Início</string>
@@ -50,7 +51,12 @@
 
     <string name="register_service">Cadastrar Serviço</string>
     <string name="register_product">Cadastrar Produto</string>
-    <string name="register_job_vacancy">Registrar Vaga de Emprego\\</string>
+    <string name="register_job_opportunity">Cadastrar Vaga de Emprego</string>
+    <string name="register_promotion">Cadastrar Promoção</string>
+    <string name="register_immobile">Cadastrar Imóvel</string>
+    <string name="register_vehicle">Cadastrar Veículo</string>
+    <string name="register_food">Cadastrar Alimentação</string>
+    <string name="register_event">Cadastrar Evento</string>
     <string name="my_ratings">Minhas Avaliações</string>
     <string name="followers">Seguidores</string>
     <string name="following">Seguindo</string>
@@ -115,4 +121,5 @@
     <string name="follow">Seguir</string>
     <string name="rating">Avaliação</string>
     <string name="rate">Avaliar</string>
+    <string name="add_image">Adicionar imagem</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -11,6 +12,8 @@
         <variable
             name="viewHolder"
             type="com.danielcunha.zaz.ui.newAd.adapter.RegisterAdViewHolder" />
+
+        <import type="android.view.View" />
     </data>
 
     <LinearLayout
@@ -127,6 +130,35 @@
                     android:layout_marginTop="@dimen/s"
                     android:text="@string/photos" />
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.hasImages ? View.VISIBLE : View.GONE}">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_images"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/xs"
+                        android:adapter="@{viewModel.adapter}"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_image_added" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/shape_circle_outline"
+                        android:contentDescription="@string/add_image"
+                        android:onClick="@{_->viewModel.actionChooseImages()}"
+                        android:src="@drawable/ic_add"
+                        app:tint="@color/orange" />
+
+                </LinearLayout>
+
                 <Button
                     android:id="@+id/btn_choose_images"
                     style="@style/Button.Outlined.Xs.Orange"
@@ -136,7 +168,8 @@
                     android:layout_marginTop="@dimen/xxs_4"
                     android:layout_marginBottom="@dimen/m"
                     android:onClick="@{_->viewModel.actionChooseImages()}"
-                    android:text="@string/choose_images" />
+                    android:text="@string/choose_images"
+                    android:visibility="@{!viewModel.hasImages ? View.VISIBLE : View.GONE}" />
 
                 <Button
                     android:id="@+id/btn_publish_ad"

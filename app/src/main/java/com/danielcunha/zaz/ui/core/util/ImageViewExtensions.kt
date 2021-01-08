@@ -1,5 +1,6 @@
 package com.danielcunha.zaz.ui.core.util
 
+import android.net.Uri
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
@@ -18,5 +19,11 @@ object ImageViewExtensions {
     @BindingAdapter("drawableStartRes")
     fun TextView.drawableStartRes(@DrawableRes srcRes: Int) {
         setCompoundDrawablesWithIntrinsicBounds(srcRes, 0, 0, 0)
+    }
+
+    @JvmStatic
+    @BindingAdapter("uri")
+    fun ImageView.imageUri(uri: Uri) {
+        setImageURI(uri)
     }
 }
