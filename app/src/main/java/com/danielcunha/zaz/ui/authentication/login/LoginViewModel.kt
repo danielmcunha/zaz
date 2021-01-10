@@ -45,15 +45,15 @@ class LoginViewModel(app: Application) : BaseViewModel(app) {
     fun actionLogin() {
         isLoading.value = true
 
-//        if (!validate()) {
-//            return
-//        }
+        if (!validate()) {
+            return
+        }
 
         viewModelScope.launch {
             loginUseCase(
                 LoginRequest(
-                    "dmaia_c@hotmail.com",
-                    "14157buzz"
+                    email.value.orEmpty(),
+                    password.value.orEmpty()
                 )
             ).fold(
                 success = {

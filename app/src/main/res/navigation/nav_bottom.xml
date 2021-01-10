@@ -19,14 +19,19 @@
 
         <action
             android:id="@+id/action_profileFragment_to_userFollowFragment"
-            app:destination="@id/userFollowFragment" />
+            app:destination="@id/userSummaryFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/userFollowFragment"
-        android:name="com.danielcunha.zaz.ui.bottomMenu.user.follow.UserFollowFragment"
-        android:label="UserFollowFragment"
-        tools:layout="@layout/fragment_user_follow" />
+        android:id="@+id/userSummaryFragment"
+        android:name="com.danielcunha.zaz.ui.bottomMenu.user.follow.UserSummaryFragment"
+        android:label="UserSummaryFragment"
+        tools:layout="@layout/fragment_user_summary">
+
+        <argument
+            android:name="followers"
+            app:argType="boolean" />
+    </fragment>
 
     <fragment
         android:id="@+id/notificationsFragment"

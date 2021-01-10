@@ -26,6 +26,12 @@ interface ApiService {
     @GET("/v2/map/user/followers/{userId}")
     suspend fun getFollowers(@Path("userId") userId: Long): List<FollowerResponse>
 
+    @GET("/v2/map/user/following/{userId}")
+    suspend fun getFollowing(@Path("userId") userId: Long): List<FollowingResponse>
+
+    @GET("/v2/map/user/info/{userId}")
+    suspend fun getUserInfo(@Path("userId") userId: Long): UserInfoResponse
+
     @POST("/v2/map/business/create")
     suspend fun createBusiness(@Body requestBody: CreateBusinessRequest)
 }

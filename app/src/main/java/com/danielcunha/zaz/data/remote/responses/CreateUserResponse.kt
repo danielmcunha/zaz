@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class CreateUserResponse(
     val avatar: String,
     val email: String,
-    val id: String,
+    val id: Long,
     @SerializedName("msg") override val message: String,
     @SerializedName("nome") val name: String,
     override val status: String,

@@ -4,11 +4,11 @@ import com.danielcunha.zaz.data.remote.SimpleResult
 import com.danielcunha.zaz.domain.models.UserSummary
 import com.danielcunha.zaz.domain.repository.UserRepository
 
-class GetFollowersUseCase(
+class GetFollowingUseCase(
     private val userRepository: UserRepository
 ) : BaseUseCase<Long, List<UserSummary>> {
 
     override suspend fun invoke(params: Long): SimpleResult<List<UserSummary>> {
-        return userRepository.getFollowers(params)
+        return userRepository.getFollowing(params)
     }
 }

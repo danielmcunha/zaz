@@ -6,7 +6,7 @@ data class LoginResponse(
     val avatar: String,
     val email: String,
     @SerializedName("nome") val name: String,
-    val id: String,
+    val id: Long,
     @SerializedName("msg") override val message: String,
     override val status: String,
     val raio: String,
