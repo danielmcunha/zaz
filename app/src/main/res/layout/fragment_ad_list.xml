@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.bottomMenu.home.tabList.AdListViewModel" />
+            type="com.zaz.app.ui.bottomMenu.home.tabList.AdListViewModel" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

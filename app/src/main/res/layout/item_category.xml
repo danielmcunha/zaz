@@ -7,7 +7,7 @@
 
         <variable
             name="viewHolder"
-            type="com.danielcunha.zaz.ui.bottomMenu.home.tabList.adapter.Category" />
+            type="com.zaz.app.ui.bottomMenu.home.tabList.adapter.CategoryViewHolder" />
     </data>
 
     <FrameLayout
@@ -22,6 +22,7 @@
             android:padding="@dimen/xxs"
             android:background="@drawable/shape_circle_outline"
             android:contentDescription="@string/category"
+            app:tint="@color/gray"
             app:srcRes="@{viewHolder.drawable}"
             tools:src="@drawable/ic_building" />
 

@@ -4,10 +4,11 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
     buildFeatures {
@@ -15,9 +16,9 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.danielcunha.zaz"
+        applicationId "com.zaz.app"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -26,7 +27,6 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
             ext.serverUrl = "https://vast-dawn-30007.herokuapp.com"
 
             buildConfigField 'String', "SERVER_URL", "\"$serverUrl\""
@@ -85,11 +85,16 @@ dependencies {
 
     implementation 'com.redmadrobot:input-mask-android:6.0.0'
 
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
     // Swipe
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.20"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.21"
 }

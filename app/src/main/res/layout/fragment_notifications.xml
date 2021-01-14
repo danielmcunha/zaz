@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.bottomMenu.notification.NotificationsViewModel" />
+            type="com.zaz.app.ui.bottomMenu.notification.NotificationsViewModel" />
     </data>
 
     <FrameLayout

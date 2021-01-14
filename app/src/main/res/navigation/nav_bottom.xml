@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.danielcunha.zaz.ui.bottomMenu.home.HomeFragment"
+        android:name="com.zaz.app.ui.bottomMenu.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.danielcunha.zaz.ui.bottomMenu.profile.ProfileFragment"
+        android:name="com.zaz.app.ui.bottomMenu.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile">
 
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/userSummaryFragment"
-        android:name="com.danielcunha.zaz.ui.bottomMenu.user.follow.UserSummaryFragment"
+        android:name="com.zaz.app.ui.bottomMenu.user.follow.UserSummaryFragment"
         android:label="UserSummaryFragment"
         tools:layout="@layout/fragment_user_summary">
 
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/notificationsFragment"
-        android:name="com.danielcunha.zaz.ui.bottomMenu.notification.NotificationsFragment"
+        android:name="com.zaz.app.ui.bottomMenu.notification.NotificationsFragment"
         android:label="NotificationsFragment"
         tools:layout="@layout/fragment_notifications" />
 

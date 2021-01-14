@@ -7,7 +7,7 @@
 
         <variable
             name="viewHolder"
-            type="com.danielcunha.zaz.ui.adPost.adapter.AdPostRating" />
+            type="com.zaz.app.ui.adPost.adapter.AdPostRating" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

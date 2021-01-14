@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.bottomMenu.profile.ProfileViewModel" />
+            type="com.zaz.app.ui.bottomMenu.profile.ProfileViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView

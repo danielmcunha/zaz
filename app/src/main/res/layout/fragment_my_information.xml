@@ -6,9 +6,9 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.bottomMenu.profile.tabMyInformation.MyInformationViewModel" />
+            type="com.zaz.app.ui.bottomMenu.profile.tabMyInformation.MyInformationViewModel" />
 
-        <import type="com.danielcunha.zaz.R" />
+        <import type="com.zaz.app.R" />
     </data>
 
 

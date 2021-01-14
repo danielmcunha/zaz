@@ -7,26 +7,28 @@
 
         <variable
             name="viewHolder"
-            type="com.danielcunha.zaz.ui.bottomMenu.home.tabSearch.adapter.SearchCategory" />
+            type="com.zaz.app.ui.bottomMenu.home.tabSearch.adapter.SearchCategory" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/xxs_3">
+        android:paddingVertical="@dimen/xxs_3"
+        android:layout_marginHorizontal="@dimen/xxs">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/xl"
             android:layout_gravity="center"
             android:background="@{viewHolder.selected ? @drawable/shape_xl_rounded_orange : @drawable/shape_xl_rounded_outline}"
-            android:drawablePadding="@dimen/m"
+            android:drawablePadding="@dimen/xxs_2"
             android:gravity="center_vertical"
-            android:paddingHorizontal="@dimen/m"
+            android:paddingHorizontal="@dimen/xxs"
             android:paddingVertical="@dimen/xxs_2"
             android:text="@{viewHolder.text}"
             android:textAllCaps="true"
             android:textAppearance="@style/Montserrat.Bold.Xxs"
+            android:textSize="10sp"
             android:textColor="@{viewHolder.selected ? @color/white : @color/orange}"
             app:drawableStartRes="@{viewHolder.selected ? viewHolder.iconSelected : viewHolder.iconUnselected}"
             tools:drawableStart="@drawable/ic_gear"

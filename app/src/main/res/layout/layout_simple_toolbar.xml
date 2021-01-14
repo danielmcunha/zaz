@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.core.base.BaseViewModel" />
+            type="com.zaz.app.ui.core.base.BaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

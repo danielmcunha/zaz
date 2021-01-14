@@ -9,7 +9,7 @@
 
         <variable
             name="viewHolder"
-            type="com.danielcunha.zaz.ui.bottomMenu.user.follow.adapter.UserSummaryViewHolder" />
+            type="com.zaz.app.ui.bottomMenu.user.follow.adapter.UserSummaryViewHolder" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

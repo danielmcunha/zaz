@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.bottomMenu.user.follow.UserSummaryViewModel" />
+            type="com.zaz.app.ui.bottomMenu.user.follow.UserSummaryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

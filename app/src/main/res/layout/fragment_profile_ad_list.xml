@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.bottomMenu.profile.tabList.ProfileAdListViewModel" />
+            type="com.zaz.app.ui.bottomMenu.profile.tabList.ProfileAdListViewModel" />
     </data>
 
     <FrameLayout

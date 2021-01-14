@@ -7,7 +7,7 @@
 
         <variable
             name="viewHolder"
-            type="com.danielcunha.zaz.ui.bottomMenu.profile.tabList.adapter.ProfileAd" />
+            type="com.zaz.app.ui.bottomMenu.profile.tabList.adapter.ProfileAd" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newAdFragment"
-        android:name="com.danielcunha.zaz.ui.newAd.NewAdFragment"
+        android:name="com.zaz.app.ui.newAd.NewAdFragment"
         android:label="NewAdFragment"
         tools:layout="@layout/fragment_new_ad">
 
@@ -18,13 +18,13 @@
 
     <fragment
         android:id="@+id/registerNewAdFragment"
-        android:name="com.danielcunha.zaz.ui.newAd.RegisterNewAdFragment"
+        android:name="com.zaz.app.ui.newAd.RegisterNewAdFragment"
         android:label="NewAdFragment"
         tools:layout="@layout/fragment_register_new_ad">
 
         <argument
             android:name="viewHolder"
-            app:argType="com.danielcunha.zaz.ui.newAd.adapter.RegisterAdViewHolder" />
+            app:argType="com.zaz.app.ui.newAd.adapter.RegisterAdViewHolder" />
         <action
             android:id="@+id/action_registerNewAdFragment_to_cameraFragment"
             app:destination="@id/cameraFragment" />
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="com.danielcunha.zaz.ui.core.camera.CameraFragment"
+        android:name="com.zaz.app.ui.core.camera.CameraFragment"
         android:label="CameraFragment"
         tools:layout="@layout/fragment_camera" />
 </navigation>

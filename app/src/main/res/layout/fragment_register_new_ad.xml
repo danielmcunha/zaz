@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.newAd.RegisterNewAdViewModel" />
+            type="com.zaz.app.ui.newAd.RegisterNewAdViewModel" />
 
         <variable
             name="viewHolder"
-            type="com.danielcunha.zaz.ui.newAd.adapter.RegisterAdViewHolder" />
+            type="com.zaz.app.ui.newAd.adapter.RegisterAdViewHolder" />
 
         <import type="android.view.View" />
     </data>

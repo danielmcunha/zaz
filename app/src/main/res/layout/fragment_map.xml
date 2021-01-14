@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.bottomMenu.map.MapViewModel" />
+            type="com.zaz.app.ui.bottomMenu.map.MapViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

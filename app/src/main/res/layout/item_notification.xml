@@ -7,7 +7,7 @@
 
         <variable
             name="viewHolder"
-            type="com.danielcunha.zaz.ui.bottomMenu.notification.adapter.Notification" />
+            type="com.zaz.app.ui.bottomMenu.notification.adapter.Notification" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

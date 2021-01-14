@@ -122,4 +122,9 @@
     <string name="rating">Avaliação</string>
     <string name="rate">Avaliar</string>
     <string name="add_image">Adicionar imagem</string>
+
+    <!--Search categories-->
+    <string name="services">Serviços</string>
+    <string name="food">Food</string>
+    <string name="properties">Imóveis</string>
 </resources>

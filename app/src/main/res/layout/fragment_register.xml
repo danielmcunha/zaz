@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.danielcunha.zaz.ui.authentication.login.register.RegisterViewModel" />
+            type="com.zaz.app.ui.authentication.login.register.RegisterViewModel" />
 
     </data>
 
@@ -28,7 +28,7 @@
                 android:layout_marginTop="@dimen/xl"
                 android:layout_marginBottom="@dimen/xl"
                 android:contentDescription="@string/logo"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/zaz_logo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/ll_form"/>
